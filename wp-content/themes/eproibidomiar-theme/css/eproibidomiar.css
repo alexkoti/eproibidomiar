@@ -7,18 +7,7 @@
  * 
  */
 
-#header-top {
-	background:url('../images/bg-pattern-1.png');
-	height:217px;
-}
-#header-top2 {
-	background:url('../images/bg-pattern-2.png');
-	height:223px;
-}
-#header-top3 {
-	background:url('../images/bg-pattern-1.png');
-	height:330px;
-}
+
 
 /**
  * ==================================================
@@ -150,6 +139,9 @@ body.locked #mobile-menu {
  * 
  */
 @media only screen and (min-width: 1200px) {
+	body {
+		padding-top:118px;
+	}
 	#logo-header {
 		background-image:url('../images/e-proibido-miar-logo-large.png');
 		height:88px;
@@ -173,6 +165,7 @@ body.locked #mobile-menu {
 @media only screen and (max-width: 1199px) {
 	body {
 		background:red;
+		padding-top:100px;
 	}
 	.navbar-brand {
 		width:310px;
@@ -200,6 +193,7 @@ body.locked #mobile-menu {
 @media only screen and (max-width: 991px) {
 	body {
 		background:green;
+		padding-top:155px;
 	}
 	#logo-header {
 		float:none;
@@ -225,6 +219,7 @@ body.locked #mobile-menu {
 @media only screen and (max-width: 767px) {
 	body {
 		background:yellow;
+		padding-top:64px;
 	}
 	#logo-header {
 		background-image:url('../images/e-proibido-miar-logo-small.png');
