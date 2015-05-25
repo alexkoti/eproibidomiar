@@ -45,6 +45,8 @@ function add_frontend_styles(){
 	$css->add('animate');
 	$css->add('font-awesome.min');
 	$css->add('main');
+	$css->add('owl.carousel');
+	$css->add('owl.theme');
 	$css->add('eproibidomiar');
 	$css->add('responsive-debug');
 	
@@ -95,6 +97,7 @@ function add_frontend_scripts(){
 	$js = new BorosJs();
 	$js->jquery('jquery.validate.min', 'libs');
 	$js->jquery('bootstrap.min', 'libs');
+	$js->jquery('owl.carousel.min', 'libs');
 	$js->jquery('functions');
 	
 	/**

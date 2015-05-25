@@ -8,6 +8,22 @@
  */
 
 
+/**
+ * ==================================================
+ * GERAL/TIPOGRAFIA =================================
+ * ==================================================
+ * 
+ * 
+ */
+body {
+	color:#c95151;
+	font-family: 'Roboto Slab', serif;
+}
+h1, h2, h3, h4, h5 {
+	font-family: 'Roboto Slab', serif;
+}
+
+
 
 /**
  * ==================================================
@@ -133,6 +149,107 @@ body.locked #mobile-menu {
 
 /**
  * ==================================================
+ * OWL SLIDER =======================================
+ * ==================================================
+ * 
+ * 
+ */
+.owl-controls {
+	position:absolute;
+	bottom:0;
+	left:50%;
+	margin:0 0 0 -150px;
+	width:300px;
+}
+.owl-carousel .item {
+	background-color:rgba(0,0,0,0.2);
+	background-position:center top;
+	background-repeat:no-repeat;
+	background-size:auto 100%;
+	height:409px;
+}
+#slider-item-0 {background-image:url('../images/slider/slider-1.png');}
+#slider-item-1 {background-image:url('../images/slider/1.jpg');}
+#slider-item-2 {background-image:url('../images/slider/2.jpg');}
+#slider-item-3 {background-image:url('../images/slider/3.jpg');}
+#main-slider .prev, 
+#main-slider .next {
+	background:rgba(201, 81, 81, 0.5);
+}
+#main-slider .prev:hover, 
+#main-slider .next:hover, 
+.owl-theme .owl-controls .owl-page span {
+	background:#c95151;
+}
+
+
+
+/**
+ * ==================================================
+ * HOME:SERVICES ====================================
+ * ==================================================
+ * 
+ * 
+ */
+#services {
+	background:url('../images/bg-pattern-2.png') repeat bottom left;
+	color:#c95151;
+}
+#services .media {
+	position:relative;
+}
+#services .media a {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+#services .media .icon-md {
+	background-color:#ffbb00;
+}
+#services .media:hover {
+	text-decoration:underline;
+}
+#services .media:hover .icon-md {
+	background-color:#ffbb00;
+}
+.icon-libras {
+	background-image:url('../images/ico/ico-libras.png');
+}
+.icon-cidade {
+	background-image:url('../images/ico/ico-cidade.png');
+}
+.icon-calendario {
+	background-image:url('../images/ico/ico-calendario.png');
+}
+
+
+
+/**
+ * ==================================================
+ * HOME:FOTOS ==========================================
+ * ==================================================
+ * 
+ * 
+ */
+#home-photos {
+	background:url('../images/bg-pattern-1.png') repeat top left;
+	color:#fff;
+}
+#home-photos h3 {
+	font-size:20px;
+}
+#home-photos .portfolio-item h5 {
+	color:#c95151;
+	font-size:13px;
+	font-weight:normal;
+}
+
+
+
+/**
+ * ==================================================
  * BREAKPOINT DESKTOP LARGE =========================
  * ==================================================
  * 
@@ -164,7 +281,6 @@ body.locked #mobile-menu {
  */
 @media only screen and (max-width: 1199px) {
 	body {
-		background:red;
 		padding-top:100px;
 	}
 	.navbar-brand {
@@ -192,7 +308,6 @@ body.locked #mobile-menu {
  */
 @media only screen and (max-width: 991px) {
 	body {
-		background:green;
 		padding-top:155px;
 	}
 	#logo-header {
@@ -218,7 +333,6 @@ body.locked #mobile-menu {
  */
 @media only screen and (max-width: 767px) {
 	body {
-		background:yellow;
 		padding-top:64px;
 	}
 	#logo-header {

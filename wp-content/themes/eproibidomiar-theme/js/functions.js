@@ -11,18 +11,41 @@ jQuery(document).ready(function($){
 	//remover status de javascript do documento
 	$('html').removeClass('no-js');
 	
-	
+	/**
+	 * Ajustar altura do menu mobile
+	 * 
+	 */
 	$('#mobile-menu .navbar-collapse').on('show.bs.collapse', function(){
 		// corrigir altura dos filtros para ocupar a altura disponível do viewport
 		var menuh = $('#box-menu-top .navbar-header').outerHeight();
 		var windowh = $(window).height();
 		$('#mobile-menu').height( windowh - menuh );
 		$('body').addClass('locked');
-	})
+	});
 	$('#mobile-menu .navbar-collapse').on('hide.bs.collapse', function(){
 		$('#mobile-menu').height('auto');
 		$('body').removeClass('locked');
-	})
+	});
+	
+	
+	/**
+	 * Slider home
+	 * 
+	 */
+	var owl = $("#owl-slider");
+	owl.owlCarousel({
+		navigation : false,
+		singleItem : true
+	});
+	$('.slider-prev-next').on('click', function(e){
+		e.preventDefault();
+		if( $(this).is('.next') ){
+			owl.trigger('owl.next');
+		}
+		else{
+			owl.trigger('owl.prev');
+		}
+	});
 	
 	
 	/**
