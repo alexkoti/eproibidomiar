@@ -1,13 +1,248 @@
+/**
+ * font-family: 'Roboto Slab', serif;
+ * font-family: 'Coustard', serif;
+ * 
+ * hover:   c95151
+ * laranja: ffbb00
+ * 
+ */
 
 #header-top {
 	background:url('../images/bg-pattern-1.png');
-	height:200px;
+	height:217px;
 }
 #header-top2 {
 	background:url('../images/bg-pattern-2.png');
-	height:200px;
+	height:223px;
 }
 #header-top3 {
 	background:url('../images/bg-pattern-1.png');
-	height:200px;
+	height:330px;
 }
+
+/**
+ * ==================================================
+ * MENU DESKTOP =====================================
+ * ==================================================
+ *
+ *
+ */
+#logo-header {
+	background-position:center top;
+	background-size:100% auto;
+	background-repeat:no-repeat;
+	display:block;
+	padding:0;
+	text-indent:-999999px;
+}
+#box-menu-top {
+	background:url('../images/bg-pattern-1.png') repeat top left;
+	font-family: 'Coustard', serif;
+}
+.navbar-inverse .navbar-nav>li a {
+	background-color:#ffbb00;
+	color:#fff;
+}
+.navbar .navbar-main .dropdown-menu > li > a {
+	background-color:#c95151;
+	color:#fff;
+}
+.navbar .navbar-main > li:focus > a, 
+.navbar .navbar-main > li:active > a, 
+.navbar .navbar-main > li:hover > a, 
+.navbar .navbar-main > li.active > a, 
+.navbar .navbar-main > li.active:hover > a, 
+.navbar .navbar-main > li.open > a, 
+.navbar .navbar-main > li.open:hover > a {
+	background-color:#c95151;
+	color:#fff;
+}
+.navbar .navbar-main .dropdown-menu {
+	background-color:#c95151;
+}
+.navbar .navbar-main .dropdown-menu > li:hover > a, 
+.navbar .navbar-main .dropdown-menu > li:focus > a, 
+.navbar .navbar-main .dropdown-menu > li.active > a {
+	background:rgba(255, 255, 255, 0.15);
+}
+
+
+
+/**
+ * ==================================================
+ * MENU RESPONSIVO ==================================
+ * ==================================================
+ * 
+ * 
+ */
+body.locked {
+	height:100%;
+	overflow:hidden;
+}
+body.locked #mobile-menu {
+	overflow:auto;
+}
+#mobile-menu {
+	height:auto;
+}
+.container>.navbar-header,
+.container>.navbar-collapse {
+	position:relative;
+}
+.navbar-toggle {
+	margin:0;
+	position:absolute;
+	right:15px;
+	top:10px;
+}
+.navbar-inverse .navbar-toggle,
+.navbar-inverse .navbar-toggle:hover, 
+.navbar-inverse .navbar-toggle:focus,
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav>.active>a:focus {
+	background:#c95151;
+	border-color:#c95151;
+}
+#mobile-menu,
+#mobile-menu a {
+	background-color:#c95151;
+	color:#fff;
+}
+#mobile-menu .navbar-nav {
+	margin:0;
+}
+#mobile-menu a:hover,
+#mobile-menu a:focus {
+	background:rgba(255, 255, 255, 0.15);
+}
+#mobile-menu .sub-menu {
+	padding:0;
+}
+#mobile-menu .sub-menu li {
+	list-style-position:inside;
+}
+#mobile-menu .sub-menu li a {
+	
+}
+#mobile-menu .navbar-collapse {
+	max-height: none;
+}
+#mobile-menu .menu-toggler {
+	height:40px;
+	position:absolute;
+	top:0;
+	right:0;
+	width:100%;
+}
+#mobile-menu .menu-toggler i {
+	float:right;
+	padding:0 10px;
+}
+
+
+
+/**
+ * ==================================================
+ * BREAKPOINT DESKTOP LARGE =========================
+ * ==================================================
+ * 
+ * 
+ */
+@media only screen and (min-width: 1200px) {
+	#logo-header {
+		background-image:url('../images/e-proibido-miar-logo-large.png');
+		height:88px;
+		margin:15px;
+		width:340px;
+	}
+	#menu-principal {
+		margin-top:40px;
+	}
+}
+
+
+
+/**
+ * ==================================================
+ * BREAKPOINT DESKTOP SMALL =========================
+ * ==================================================
+ * 
+ * 
+ */
+@media only screen and (max-width: 1199px) {
+	body {
+		background:red;
+	}
+	.navbar-brand {
+		width:310px;
+	}
+	#logo-header {
+		background-image:url('../images/e-proibido-miar-logo-large.png');
+		height:70px;
+		margin:15px;
+		width:260px;
+	}
+	#menu-principal {
+		margin-top:30px;
+	}
+}
+
+
+
+/**
+ * ==================================================
+ * BREAKPOINT MEDIUM ================================
+ * ==================================================
+ * 
+ * 
+ */
+@media only screen and (max-width: 991px) {
+	body {
+		background:green;
+	}
+	#logo-header {
+		float:none;
+		margin:15px auto;
+	}
+	.navbar-header {
+		float:none;
+	}
+	#menu-principal {
+		margin:0 0 15px;
+	}
+}
+
+
+
+/**
+ * ==================================================
+ * BREAKPOINT SMALL =================================
+ * ==================================================
+ * 
+ * 
+ */
+@media only screen and (max-width: 767px) {
+	body {
+		background:yellow;
+	}
+	#logo-header {
+		background-image:url('../images/e-proibido-miar-logo-small.png');
+		float:left;
+		height:34px;
+		margin:15px;
+		width:195px;
+	}
+	.navbar-collapse {
+		padding:0;
+	}
+}
+
+
+
+
+
+
+
+
+

@@ -42,22 +42,24 @@ function add_frontend_styles(){
 	$css = new BorosCss();
 	$css->add('bootstrap.min');
 	$css->add('wp');
+	$css->add('animate');
+	$css->add('font-awesome.min');
+	$css->add('main');
 	$css->add('eproibidomiar');
+	$css->add('responsive-debug');
 	
 	if( defined('LOCALHOST') and LOCALHOST == true ){
 		$css->add('responsive_debug');
 	}
 	
-	/** MODELO absolute / google fonts
 	$args = array(
-		'name' => 'fonts',
-		'src' => 'http://fonts.googleapis.com/css?family=Dosis:400,700|Amatic+SC:400,700',
+		'name' => 'Font-Coustard-RobotoSlab',
+		'src' => 'http://fonts.googleapis.com/css?family=Coustard|Roboto+Slab:400,700,300',
 		'parent' => false,
 		'version' => '1',
 		'media' => 'screen',
 	);
 	$css->abs($args);
-	/**/
 	
 	/** MODELOS
 	//simples, sem dependencia

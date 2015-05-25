@@ -10,15 +10,16 @@
  * ATENÇÃO: o indice 'menu_footer' é utilizado pelo bootstrap_nav_menu_walker(), caso seja preciso modificar o índice, é
  * preciso atualizar 
  */
-add_action( 'admin_init', 'register_menus' );
-function register_menus(){
-	register_nav_menus(
-		array(
-		  'menu_header' => 'Slot Cabeçalho',
-		  'menu_footer' => 'Slot Rodapé',
-		)
-	);
-}
+register_nav_menus(
+	array(
+	  'menu_header' => 'Posição Cabeçalho',
+	  'menu_footer' => 'Posição Rodapé',
+	)
+);
+
+// incluir as classes originais para montar o menu:
+include('lib/navwalker.php');
+include('lib/navwalker-mobile.php');
 
 // FIXO: Adicionar item 'Home' às páginas dsponíveis para criar menus
 add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
@@ -66,7 +67,7 @@ function register_sidebars_init(){
  * 
  * @ATENÇÂO: a class é aplicada no link <a>, e não na li parent
  */
-add_filter( 'walker_nav_menu_start_el', 'add_class_to_custom_post_type_menu', 10, 4 );
+//add_filter( 'walker_nav_menu_start_el', 'add_class_to_custom_post_type_menu', 10, 4 );
 function add_class_to_custom_post_type_menu( $item_output, $item, $depth, $args ){
 	global $post;
 	
