@@ -22,6 +22,27 @@ body {
 h1, h2, h3, h4, h5 {
 	font-family: 'Roboto Slab', serif;
 }
+h1, .h1 {
+	font-size:30px;
+	font-weight:400;
+}
+h2, .h2 {
+	font-size:20px;
+}
+
+
+
+/**
+ * ==================================================
+ * OVERWRITE:MAIN BOOTSTRAP =========================
+ * ==================================================
+ * Sobrepor regras do main.css e bootstrap.css
+ * 
+ */
+body > section, 
+#boxed > section {
+	padding:30px 0;
+}
 
 
 
@@ -250,6 +271,167 @@ body.locked #mobile-menu {
 
 /**
  * ==================================================
+ * HOME:TESTIMONIALS ================================
+ * ==================================================
+ * 
+ * 
+ */
+#testimonial {
+	background-color:#c95151;
+	color:#fff;
+}
+#testimonial blockquote {
+	border-color:#ffbb00;
+}
+#testimonial blockquote p {
+	font-size:14px;
+}
+#testimonial blockquote small {
+	font-size:12px;
+}
+
+
+
+/**
+ * ==================================================
+ * HOME:TESTIMONIALS ================================
+ * ==================================================
+ * 
+ * 
+ */
+#sponsors {
+	background-color:#fffaeb;
+	color:#c95151;
+}
+#sponsors blockquote {
+	border-color:#ffbb00;
+}
+#sponsors blockquote img {
+	display:inline-block;
+}
+
+
+
+/**
+ * ==================================================
+ * PAGE:GERAL =======================================
+ * ==================================================
+ * 
+ * 
+ */
+.page-head {
+	background:#c95151;
+	color:#fff;
+	font-family: 'Coustard', serif;
+	font-size:22px;
+	padding:15px 0 20px;
+}
+
+
+
+/**
+ * ==================================================
+ * SOBRE ============================================
+ * ==================================================
+ * 
+ * 
+ */
+#chamada-1 {
+	font-size:24px;
+	line-height:27px;
+	margin:35px 0;
+}
+#chamada-2 {
+	font-size:16px;
+	margin:30px 0;
+}
+#img-sobre {
+	float:right;
+	margin-right:-30px;
+}
+#sobre-chamadas-secundarias {
+	background-color:#ffbb00;
+	margin-top:-130px;
+	padding:30px 0;
+}
+#chamada-3 {
+	color:#fff;
+	font-size:19px;
+	font-weight:bold;
+	padding-left:110px;
+	position:relative;
+}
+#chamada-3 .ico {
+	background:#c95151 url('../images/ico/ico-sobre-balao.png') no-repeat center center;
+	border-radius:50%;
+	height:80px;
+	width:80px;
+	position:absolute;
+	left:0;
+	top:50%;
+	margin-top:-40px;
+}
+#sobre-info {
+	background-color:#c95151;
+	color:#fff;
+	padding:20px 0;
+}
+#sobre-info #ico-sobre-balao-grande {
+	float:right;
+	margin:0 100px;
+}
+#sobre-info h1,
+#sobre-info h2 {
+	color:#ffbb00;
+}
+#sobre-info .espetaculo-recurso {
+	border-left:4px solid #ffbb00;
+	padding:0 0 15px 25px;
+}
+#sobre-info .espetaculo-recurso h2 img {
+	display:inline-block;
+	vertical-align:bottom;
+}
+
+
+
+/**
+ * ==================================================
+ * FOOTER ===========================================
+ * ==================================================
+ * 
+ * 
+ */
+#footer {
+	background-color:#ffbb00;
+	color:#fff;
+}
+#footer a {
+	color:#fff;
+}
+#footer a:hover {
+	color:#c95151;
+}
+#footer blockquote {
+	border:0;
+	font-size:12px;
+	font-weight:bold;
+	padding:0;
+}
+#footer blockquote em {
+	display:block;
+	font-size:11px;
+	font-weight:normal;
+	margin-top:10px;
+}
+#footer .nav-footer {
+	font-size:12px;
+	font-weight:bold;
+}
+
+
+/**
+ * ==================================================
  * BREAKPOINT DESKTOP LARGE =========================
  * ==================================================
  * 
@@ -295,6 +477,9 @@ body.locked #mobile-menu {
 	#menu-principal {
 		margin-top:30px;
 	}
+	#sobre-chamadas-secundarias {
+		margin-top:-40px;
+	}
 }
 
 
@@ -320,6 +505,9 @@ body.locked #mobile-menu {
 	#menu-principal {
 		margin:0 0 15px;
 	}
+	#sobre-chamadas-secundarias {
+		margin-top:0;
+	}
 }
 
 
@@ -328,7 +516,7 @@ body.locked #mobile-menu {
  * ==================================================
  * BREAKPOINT SMALL =================================
  * ==================================================
- * 
+ * Monstra o menu hamburguer
  * 
  */
 @media only screen and (max-width: 767px) {
@@ -344,6 +532,30 @@ body.locked #mobile-menu {
 	}
 	.navbar-collapse {
 		padding:0;
+	}
+	#sponsors blockquote img {
+		display:block;
+		margin:0 auto;
+	}
+	#img-sobre {
+		float:none;
+		margin:0 auto;
+	}
+	#chamada-1 {
+		font-size:20px;
+		margin:10px 0;
+	}
+	#chamada-2 {
+		margin:10px 0;
+	}
+	#chamada-3 {
+		padding:0;
+	}
+	#chamada-3 .ico {
+		position:relative;
+		top:0;
+		left:0;
+		margin:0 auto;
 	}
 }
 

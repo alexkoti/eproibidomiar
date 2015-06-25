@@ -51,7 +51,7 @@ wp_head();
 		</div>
 		
 		<div class="hidden-xs">
-			<?php 
+			<?php
 			if ( has_nav_menu( 'menu_header' ) ) {
 				wp_nav_menu(array(
 					'theme_location'  => 'menu_header',
@@ -66,7 +66,7 @@ wp_head();
 
 		<div id="mobile-menu" class="visible-xs">
 			<div class="collapse navbar-collapse">
-			<?php 
+			<?php
 			if ( has_nav_menu( 'menu_header' ) ) {
 				wp_nav_menu(array(
 					'theme_location'  => 'menu_header',

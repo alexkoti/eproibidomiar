@@ -24,8 +24,8 @@
 						<i class="icon-libras icon-md"></i>
 					</div>
 					<div class="media-body">
-						<h3 class="media-heading">Twitter Marketing</h3>
-						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+						<h3 class="media-heading">LIBRAS e Audiodescrição</h3>
+						<p>Entenda como o grupo trabalhou para incluir estes recursos de acessibilidade no espetáculo.</p>
 					</div>
 					<a href="#"></a>
 				</div>
@@ -36,8 +36,8 @@
 						<i class="icon-cidade icon-md"></i>
 					</div>
 					<div class="media-body">
-						<h3 class="media-heading">Facebook Marketing</h3>
-						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+						<h3 class="media-heading">É Proibido Miar na sua cidade?</h3>
+						<p>Não, não é proibido não! E é só chamar, que a gente vai aí miar, latir e apresentar o espetáculo. : )</p>
 					</div>
 					<a href="#"></a>
 				</div>
@@ -48,8 +48,8 @@
 						<i class="icon-calendario icon-md"></i>
 					</div>
 					<div class="media-body">
-						<h3 class="media-heading">Google Plus Marketing</h3>
-						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+						<h3 class="media-heading">Onde estamos, pra onde vamos? Descubra...</h3>
+						<p>Confira nossa agenda de espetáculos, oficinas, treinamentos e ensaios abertos.</p>
 					</div>
 					<a href="#"></a>
 				</div>
@@ -182,6 +182,35 @@
 						<blockquote>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
 							<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!--/#testimonial-->
+
+<section id="sponsors">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="center">
+					<h2>Patrocinadores e Apoiadores</h2>
+					<p>Sem eles não seria possível ou talvez não fosse a mesma coisa.</p>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<blockquote>
+							<p>Financiamento</p>
+							<a href="#"><img src="<?php echo THEME; ?>/images/patrocinador-1.png" alt="" class="img-responsive" /></a>
+							<a href="#"><img src="<?php echo THEME; ?>/images/patrocinador-2.png" alt="" class="img-responsive" /></a>
+						</blockquote>
+					</div>
+					<div class="col-md-6">
+						<blockquote>
+							<p>Apoiadores e parceiros</p>
+							<a href="#"><img src="<?php echo THEME; ?>/images/patrocinador-3.png" alt="" class="img-responsive" /></a>
+							<a href="#"><img src="<?php echo THEME; ?>/images/patrocinador-4.png" alt="" class="img-responsive" /></a>
 						</blockquote>
 					</div>
 				</div>
