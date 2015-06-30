@@ -48,20 +48,21 @@ function add_frontend_styles(){
 	$css->add('owl.carousel');
 	$css->add('owl.theme');
 	$css->add('eproibidomiar');
-	$css->add('responsive-debug');
 	
 	if( defined('LOCALHOST') and LOCALHOST == true ){
-		$css->add('responsive_debug');
+		$css->add('responsive-debug');
 	}
 	
-	$args = array(
-		'name' => 'Font-Coustard-RobotoSlab',
-		'src' => 'http://fonts.googleapis.com/css?family=Coustard|Roboto+Slab:400,700,300',
-		'parent' => false,
-		'version' => '1',
-		'media' => 'screen',
-	);
-	$css->abs($args);
+	if( !defined('LOCALHOST') ){
+		$args = array(
+			'name' => 'Font-Coustard-RobotoSlab',
+			'src' => 'http://fonts.googleapis.com/css?family=Coustard|Roboto+Slab:400,700,300',
+			'parent' => false,
+			'version' => '1',
+			'media' => 'screen',
+		);
+		$css->abs($args);
+	}
 	
 	/** MODELOS
 	//simples, sem dependencia

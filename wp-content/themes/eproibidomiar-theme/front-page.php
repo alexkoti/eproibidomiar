@@ -18,42 +18,31 @@
 <section id="services">
 	<div class="container">
 		<div class="row">
+			<?php
+			$chamadas = array(
+				1 => 'libras', 
+				2 => 'cidade', 
+				3 => 'calendario'
+			);
+			foreach( $chamadas as $i => $icon ){
+				$class = "icon-{$icon} icon-md";
+				$title = get_option("home_feature_{$i}_title");
+				$text  = get_option("home_feature_{$i}_text");
+				$link  = get_permalink(get_option("home_feature_{$i}_link"));
+			?>
 			<div class="col-md-4 col-sm-6">
 				<div class="media">
 					<div class="pull-left">
-						<i class="icon-libras icon-md"></i>
+						<i class="<?php echo $class; ?>"></i>
 					</div>
 					<div class="media-body">
-						<h3 class="media-heading">LIBRAS e Audiodescrição</h3>
-						<p>Entenda como o grupo trabalhou para incluir estes recursos de acessibilidade no espetáculo.</p>
+						<h3 class="media-heading"><?php echo $title; ?></h3>
+						<p><?php echo $text; ?></p>
 					</div>
-					<a href="#"></a>
+					<a href="<?php echo $link; ?>"></a>
 				</div>
 			</div><!--/.col-md-4-->
-			<div class="col-md-4 col-sm-6">
-				<div class="media">
-					<div class="pull-left">
-						<i class="icon-cidade icon-md"></i>
-					</div>
-					<div class="media-body">
-						<h3 class="media-heading">É Proibido Miar na sua cidade?</h3>
-						<p>Não, não é proibido não! E é só chamar, que a gente vai aí miar, latir e apresentar o espetáculo. : )</p>
-					</div>
-					<a href="#"></a>
-				</div>
-			</div><!--/.col-md-4-->
-			<div class="col-md-4 col-sm-6">
-				<div class="media">
-					<div class="pull-left">
-						<i class="icon-calendario icon-md"></i>
-					</div>
-					<div class="media-body">
-						<h3 class="media-heading">Onde estamos, pra onde vamos? Descubra...</h3>
-						<p>Confira nossa agenda de espetáculos, oficinas, treinamentos e ensaios abertos.</p>
-					</div>
-					<a href="#"></a>
-				</div>
-			</div><!--/.col-md-4-->
+			<?php } ?>
 		</div>
 	</div>
 </section><!--/#services-->
@@ -154,6 +143,10 @@
 	</div>
 </section><!--/#photos-->
 
+<?php
+$testimonials = get_option('home_testimonials');
+if( !empty($testimonials) ){
+?>
 <section id="testimonial">
 	<div class="container">
 		<div class="row">
@@ -164,31 +157,27 @@
 				</div>
 				<div class="gap"></div>
 				<div class="row">
-					<div class="col-md-6">
-						<blockquote>
-							<p>“Foi uma ideia feliz e um passo importante para a inclusão social e cultural em nosso estado. Em nossos país...</p>
-							<small>Fabrício Peçanha - Revista Capricho</small>
-						</blockquote>
-						<blockquote>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-							<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-						</blockquote>
-					</div>
-					<div class="col-md-6">
-						<blockquote>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-							<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-						</blockquote>
-						<blockquote>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-							<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-						</blockquote>
-					</div>
+					<?php
+					echo '<div class="col-md-6">';
+					$i = 1;
+					foreach( $testimonials as $t ){
+					?>
+					<blockquote>
+						<p><?php echo $t['text'] ?></p>
+						<small><?php echo $t['author'] ?></small>
+					</blockquote>
+					<?php
+						if( $i == 2 ){ echo '</div><div class="col-md-6">';}
+						else{$i++;}
+					}
+					echo '</div>';
+					?>
 				</div>
 			</div>
 		</div>
 	</div>
 </section><!--/#testimonial-->
+<?php } ?>
 
 <section id="sponsors">
 	<div class="container">
@@ -198,19 +187,34 @@
 					<h2>Patrocinadores e Apoiadores</h2>
 					<p>Sem eles não seria possível ou talvez não fosse a mesma coisa.</p>
 				</div>
+				<p class="gap"></p>
 				<div class="row">
 					<div class="col-md-6">
 						<blockquote>
 							<p>Financiamento</p>
-							<a href="#"><img src="<?php echo THEME; ?>/images/patrocinador-1.png" alt="" class="img-responsive" /></a>
-							<a href="#"><img src="<?php echo THEME; ?>/images/patrocinador-2.png" alt="" class="img-responsive" /></a>
+							<?php
+							$home_financing = get_option('home_financing');
+							if( !empty($home_financing) ){
+								foreach( $home_financing as $financing ){
+									$img = wp_get_attachment_image_src($financing['image'], 'full');
+									echo "<a href='{$financing['link']}' target='_blank'><img src='{$img[0]}' title='{$financing['name']}' alt='{$financing['name']}' /></a>";
+								}
+							}
+							?>
 						</blockquote>
 					</div>
 					<div class="col-md-6">
 						<blockquote>
 							<p>Apoiadores e parceiros</p>
-							<a href="#"><img src="<?php echo THEME; ?>/images/patrocinador-3.png" alt="" class="img-responsive" /></a>
-							<a href="#"><img src="<?php echo THEME; ?>/images/patrocinador-4.png" alt="" class="img-responsive" /></a>
+							<?php
+							$home_partners = get_option('home_supporters_partners');
+							if( !empty($home_partners) ){
+								foreach( $home_partners as $partner ){
+									$img = wp_get_attachment_image_src($partner['image'], 'full');
+									echo "<a href='{$partner['link']}' target='_blank'><img src='{$img[0]}' title='{$partner['name']}' alt='{$partner['name']}' /></a>";
+								}
+							}
+							?>
 						</blockquote>
 					</div>
 				</div>

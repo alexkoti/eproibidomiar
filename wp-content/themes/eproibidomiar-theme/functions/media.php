@@ -7,12 +7,10 @@
  * Verficar se existe o post-thumbnail: has_post_thumbnail() return bool
  */
 // adicionar suporte
-add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
+add_theme_support( 'post-thumbnails', array( 'post', 'page', 'foto' ) );
 
 // tamanho do post-thumb W, H, crop
-set_post_thumbnail_size( 300, 300, true );
-
-if ( ! isset( $content_width ) ) $content_width = get_option('embed_size_w');
+set_post_thumbnail_size( 250, 250, true );
 
 
 
@@ -23,7 +21,7 @@ if ( ! isset( $content_width ) ) $content_width = get_option('embed_size_w');
  * Adicionar novos tamanhos de imagens
  * @version 2.9+
  */
-//add_image_size( 'tamanho_a', 400, 400, false );
+add_image_size( 'blog-image', 750, 400, true );
 //add_image_size( 'tamanho_b', 800, 800, false );
 //add_image_size( 'tamanho_a', 1000, 1000, false );
 
@@ -33,6 +31,28 @@ function image_sizes_names( $sizes ){
 	//$sizes['tamanho_b'] = 'Tamanho B';
 	$sizes['post-thumbnail'] = 'Post Thumbnail';
 	return $sizes;
+}
+
+/**
+ * Upscale images
+ * 
+ * @link http://wordpress.stackexchange.com/a/64953
+ * 
+ */
+add_filter('image_resize_dimensions', 'image_crop_dimensions', 10, 6);
+function image_crop_dimensions($default, $orig_w, $orig_h, $new_w, $new_h, $crop){
+	if ( !$crop ) return null; // let the wordpress default function handle this
+
+	$aspect_ratio = $orig_w / $orig_h;
+	$size_ratio = max($new_w / $orig_w, $new_h / $orig_h);
+
+	$crop_w = round($new_w / $size_ratio);
+	$crop_h = round($new_h / $size_ratio);
+
+	$s_x = floor( ($orig_w - $crop_w) / 2 );
+	$s_y = floor( ($orig_h - $crop_h) / 2 );
+
+	return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
 }
 
 

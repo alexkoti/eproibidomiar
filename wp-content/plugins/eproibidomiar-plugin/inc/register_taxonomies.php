@@ -13,7 +13,7 @@
  * 
  * 
  */
-//add_action('init', 'register_taxonomies');
+add_action('init', 'register_taxonomies');
 function register_taxonomies(){
 	/**
 	MODELOS DE LABELS ================================
@@ -52,20 +52,20 @@ function register_taxonomies(){
 	 * 
 	 */
 	$labels = array(
-		'name' => 'Regiões',
-		'singular_name' => 'Região',
-		'search_items' => 'Buscar Região',
-		'popular_items' => 'Regiões Populares',
-		'all_items' => 'Todas as Regiões',
-		'edit_item' => 'Editar Região',
-		'update_item' => 'Atualizar Região',
-		'add_new_item' => 'Adicionar nova Região',
-		'new_item_name' => 'Nome da nova Região',
+		'name' => 'Categorias de Fotos',
+		'singular_name' => 'Categoria de Fotos',
+		'search_items' => 'Buscar Categoria de Fotos',
+		'popular_items' => 'Categorias de Fotos Populares',
+		'all_items' => 'Todas as Categorias de Fotos',
+		'edit_item' => 'Editar Categoria de Fotos',
+		'update_item' => 'Atualizar Categoria de Fotos',
+		'add_new_item' => 'Adicionar nova Categoria de Fotos',
+		'new_item_name' => 'Nome da nova Categoria de Fotos',
 		// >>> hierarchical labels
-		'parent_item' => 'Região Pai',
-		'parent_item_colon' => 'Região Pai:',
+		'parent_item' => 'Categoria de Fotos mãe',
+		'parent_item_colon' => 'Categoria de Fotos mãe:',
 	); 
-	register_taxonomy('regiao', array('post', 'noticia'), array(
+	register_taxonomy('categoria_foto', array('foto'), array(
 		'hierarchical' => true,
 		'labels' => $labels,
 		'public' => true,
@@ -77,7 +77,7 @@ function register_taxonomies(){
 			'assign_terms' => 'edit_posts',
 		),
 		'rewrite' => array(
-			'slug' => 'regiao',
+			'slug' => 'categoria-foto',
 			'hierarchical' => true
 		),
 	));

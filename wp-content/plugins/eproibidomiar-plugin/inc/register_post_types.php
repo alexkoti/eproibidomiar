@@ -24,29 +24,29 @@
  * 
  * 
  */
-//add_action( 'init', 'register_post_types' );
+add_action( 'init', 'register_post_types' );
 function register_post_types(){
 	/**
 	 * Noticias
 	 * 
 	 */
 	$labels = array(
-		'name' => 'Notícias',
-		'singular_name' => 'Notícia',
-		'menu_name' => 'Noticias',
-		'add_new' => 'Nova Notícia',
-		'add_new_item' => 'Adicionar Notícia',
-		'edit_item' => 'Editar Notícia',
-		'new_item' => 'Nova Notícia',
-		'view_item' => 'Ver Notícia',
-		'search_items' => 'Buscar Notícia',
+		'name' => 'Fotos',
+		'singular_name' => 'Foto',
+		'menu_name' => 'Fotos',
+		'add_new' => 'Nova Foto',
+		'add_new_item' => 'Adicionar Foto',
+		'edit_item' => 'Editar Foto',
+		'new_item' => 'Nova Foto',
+		'view_item' => 'Ver Foto',
+		'search_items' => 'Buscar Foto',
 		'not_found' =>  'Nenhum encontrada',
 		'not_found_in_trash' => 'Nenhum encontrada na lixeira',
 		'parent_item_colon' => ''
 	);
 	$args = array(
 		'labels' => $labels,
-		'description' => 'Notícias gerais',
+		'description' => 'Fotos',
 		'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,
@@ -55,135 +55,26 @@ function register_post_types(){
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
-		'capabilities' => array( 
-			'edit_post'              => 'edit_post',
-			'read_post'              => 'read_post',
-			'delete_post'            => 'delete_post',
-			'edit_posts'             => 'edit_posts',
-			'edit_others_posts'      => 'edit_others_posts',
-			'publish_posts'          => 'publish_posts',
-			'read_private_posts'     => 'read_private_posts',
-			'delete_posts'           => 'delete_posts',
-			'delete_private_posts'   => 'delete_private_posts',
-			'delete_published_posts' => 'delete_published_posts',
-			'delete_others_posts'    => 'delete_others_posts',
-			'edit_private_posts'     => 'edit_private_posts',
-			'edit_published_posts'   => 'edit_published_posts',
-			'create_posts'           => 'edit_posts',
-			'read'                   => 'read',
-		), 
 		'hierarchical' => false,
-		'has_archive' => 'noticias',
-		'menu_icon' => 'dashicons-calendar',
+		//'has_archive' => 'fotos',
+		'menu_icon' => 'dashicons-images-alt2',
 		//'show_in_menu' => 'edit.php?post_type=artigo',
 		'supports' => array(
 			'title',
-			'editor',
 			'thumbnail',
-			'comments',
 		)
 	); 
-	register_post_type( 'noticia' , $args );
+	register_post_type( 'foto' , $args );
 	$columns_config = array(
-		'post_type' => 'noticia',
+		'post_type' => 'foto',
 		'columns' => array(
 			'cb' => '<input type="checkbox" />',
 			'title' => 'Título',
-			'terms_list_regiao' => 'Regiões',
+			'thumb' => 'Foto',
 			'date' => 'Data',
 		)
 	);
 	new BorosPostTypeColumns( $columns_config );
-	
-	/**
-	 * ARTIGOS
-	 * 
-	 */
-	$labels = array(
-		'name' => 'Artigos',
-		'singular_name' => 'Artigo',
-		'menu_name' => 'Artigos',
-		'add_new' => 'Novo Artigo',
-		'add_new_item' => 'Adicionar Artigo',
-		'edit_item' => 'Editar Artigo',
-		'new_item' => 'Novo Artigo',
-		'view_item' => 'Ver Artigo',
-		'search_items' => 'Buscar Artigo',
-		'not_found' =>  'Nenhum encontrado',
-		'not_found_in_trash' => 'Nenhum encontrado na lixeira',
-		'parent_item_colon' => '',
-	);
-	$args = array(
-		'labels' => $labels,
-		'description' => 'Artigos gerais',
-		'public' => true,
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'show_ui' => true,
-			'show_in_nav_menus' => true,
-		'query_var' => true,
-		'rewrite' => true,
-		'capability_type' => 'post',
-		'capabilities' => array( 
-			'edit_post'              => 'edit_post',
-			'read_post'              => 'read_post',
-			'delete_post'            => 'delete_post',
-			'edit_posts'             => 'edit_posts',
-			'edit_others_posts'      => 'edit_others_posts',
-			'publish_posts'          => 'publish_posts',
-			'read_private_posts'     => 'read_private_posts',
-			'delete_posts'           => 'delete_posts',
-			'delete_private_posts'   => 'delete_private_posts',
-			'delete_published_posts' => 'delete_published_posts',
-			'delete_others_posts'    => 'delete_others_posts',
-			'edit_private_posts'     => 'edit_private_posts',
-			'edit_published_posts'   => 'edit_published_posts',
-			'create_posts'           => 'edit_posts',
-			'read'                   => 'read',
-		), 
-		'hierarchical' => true,
-		'has_archive' => 'artigos',
-		'menu_icon' => 'dashicons-format-aside',
-		//'show_in_menu' => 'edit.php?post_type=artigo',
-		'supports' => array(
-			'title',
-			'editor',
-			'thumbnail',
-			'page-attributes',
-		)
-	); 
-	register_post_type( 'artigo' , $args );
-	$columns_config = array(
-		'post_type' => 'artigo',
-		'columns' => array(
-			'cb' => '<input type="checkbox" />',
-			'title' => 'Título',
-			'date' => 'Data',
-		)
-	);
-	new BorosPostTypeColumns( $columns_config );
-	$help_config = array(
-		'post_type' => 'artigo',
-		'list' => array(
-			array(
-				'id' => 'page_edit',
-				'title' => 'Help LIST',
-				'content' => '	<p>Morbi rhoncus massa tellus, at eleifend nunc. Phasellus arcu purus, luctus nec commodo eget, scelerisque tempor sem.</p>
-								<p>Sed nibh velit, rhoncus in tempus vitae, aliquam at metus? Phasellus vel tristique enim? Pellentesque ullamcorper, arcu ac pellentesque congue, sapien arcu viverra elit, a sagittis metus risus eu ligula. Curabitur ut leo et mi tempor porttitor at ut lectus.</p>
-								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam justo ligula, dignissim eu consequat et, iaculis non dui. Nulla facilisi. Morbi accumsan leo id quam accumsan eleifend. Aliquam elementum, odio quis rhoncus viverra, metus orci sodales turpis, vel facilisis lorem ipsum eu eros. Maecenas eu vehicula ligula.</p>'
-			),
-		),
-		'edit' => array(
-			array(
-				'id' => 'page_edit',
-				'title' => 'Help EDIT',
-				'content' => '	<p>Morbi rhoncus massa tellus, at eleifend nunc. Phasellus arcu purus, luctus nec commodo eget, scelerisque tempor sem.</p>
-								<p>Sed nibh velit, rhoncus in tempus vitae, aliquam at metus? Phasellus vel tristique enim? Pellentesque ullamcorper, arcu ac pellentesque congue, sapien arcu viverra elit, a sagittis metus risus eu ligula. Curabitur ut leo et mi tempor porttitor at ut lectus.</p>
-								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam justo ligula, dignissim eu consequat et, iaculis non dui. Nulla facilisi. Morbi accumsan leo id quam accumsan eleifend. Aliquam elementum, odio quis rhoncus viverra, metus orci sodales turpis, vel facilisis lorem ipsum eu eros. Maecenas eu vehicula ligula.</p>'
-			),
-		),
-	);
-	new BorosPostTypeScreenHelp( $help_config );
 }
 
 /**
@@ -191,7 +82,7 @@ function register_post_types(){
  * Configuração das colunas de listagem dos post_types core.
  * 
  */
-//add_filter('manage_posts_columns', 'control_posts_columns');
+add_filter('manage_posts_columns', 'control_posts_columns');
 function control_posts_columns( $posts_columns ){
 	$posts_columns = array(
 		'cb' => '<input type="checkbox" />',

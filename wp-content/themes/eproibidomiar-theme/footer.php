@@ -3,8 +3,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
-				<blockquote>"Há diferenças e há igualdades - nem tudo deve ser igual, assim como nem tudo deve ser diferente. (...) é preciso que tenhamos o direito de ser diferentes quando a igualdade nos descaracteriza e o direito de ser iguais quando a diferença nos inferioriza." <br />
-				<em>Boaventura de Sousa Santos, sociólogo português.</em></blockquote>
+				<blockquote>
+					<?php opt_option('footer_text', '%s', true, 'the_content'); ?>
+					<?php opt_option('footer_author', '<em>%s</em>'); ?>
+				</blockquote>
 			</div>
 			<div class="col-sm-6">
 				<?php
@@ -18,7 +20,6 @@
 					)); 
 				}
 				?>
-				<!-- a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a><!--#gototop-->
 			</div>
 		</div>
 	</div>

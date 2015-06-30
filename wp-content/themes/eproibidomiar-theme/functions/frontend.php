@@ -21,6 +21,20 @@ function template_debug_footer(){
 
 
 
+/**
+ * Filtrar title em depoimentos
+ * 
+ */
+add_filter( 'the_title', 'miar_filter_testimonial_title', 10, 2 );
+function miar_filter_testimonial_title( $title, $post_id = null ){
+	if( in_category('depoimentos', $post_id) ){
+		return "&ldquo;{$title}&rdquo;";
+	}
+	return $title;
+}
+
+
+
 add_action( 'template_redirect', 'close_site' );
 function close_site(){
 	$logged_in_only = get_option('logged_in_only');

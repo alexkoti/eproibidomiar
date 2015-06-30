@@ -7,164 +7,74 @@
  */
 add_action( 'admin_init', 'my_meta_boxes' );
 function my_meta_boxes(){
+	
 	$meta_boxes = array();
 	$meta_boxes[] = array(
-		'id' => 'post_special_image_box', 
-		'title' => 'Imagem do Post', 
-		'post_type' => array('post'), 
-		'context' => 'side', 
-		'priority' => 'default',
-		'help' => 'Você poderá enviar uma nova imagem ou escolher entre as imagens deste post ou uma da biblioteca.',
-		'itens' => array(
-			array(
-				'name' => '_thumbnail_id',
-				'type' => 'special_image',
-				'layout' => 'block',
-				'options' => array(
-					'image_size' => 'large',
-					'layout' => 'grid',
-					'width' => 264,
-				),
-				//'options' => array(
-				//	'image_size' => 'large', // tamanho dos recortes reistrados
-				//	'layout' => 'grid',      // grid: imagem em cima, controles centralizados em baixo | row: controles flutuando ao lado da imagem
-				//	'width' => 264,          // 264 é a largura disponível dentro do metabox lateral
-				//),
-			),
-		)
-	);
-	$meta_boxes[] = array(
-		'id' => 'post_category_box', 
-		'title' => 'Categoria do Post', 
-		'post_type' => array('post'), 
-		'context' => 'side', 
-		'priority' => 'default',
-		'itens' => array(
-			array(
-				'name' => 'post_category',
-				'type' => 'taxonomy_checkbox',
-				'layout' => 'block',
-				'options' => array(
-					'taxonomy' => 'category',
-					'force_hierachical' => true,
-				)
-			),
-		)
-	);
-	$meta_boxes[] = array(
-		'id' => 'video_box', 
-		'title' => 'Vídeo do post', 
+		'id' => 'clipping_box', 
+		'title' => 'Clipping', 
+		'desc' => 'Informações de Clipping',
 		'post_type' => array('post'), 
 		'context' => 'normal', 
 		'priority' => 'default',
 		'itens' => array(
 			array(
-				'name' => 'video_url',
+				'name' => 'clipping_data',
+				'type' => 'text',
+				'size' => 'medium',
+				'label' => 'Data',
+			),
+			array(
+				'name' => 'clipping_author',
+				'type' => 'text',
+				'size' => 'medium',
+				'label' => 'Autor',
+			),
+			array(
+				'name' => 'clipping_media',
+				'type' => 'text',
+				'size' => 'medium',
+				'label' => 'Veículo',
+			),
+		)
+	);
+	
+	$meta_boxes[] = array(
+		'id' => 'testimonial_box', 
+		'title' => 'Depoimento', 
+		//'desc' => '',
+		'post_type' => array('post'), 
+		'context' => 'normal', 
+		'priority' => 'default',
+		'itens' => array(
+			array(
+				'name' => 'testimonial_author',
 				'type' => 'text',
 				'size' => 'full',
-				'label' => 'Endereço do vídeo',
-				'label_helper' => 'Vídeos privados não poderão ser exibidos',
-				'input_helper' => '<br />Serviços suportados: YouTube, Vimeo, DailyMotion, blip.tv, Flickr(fotos e vídeo), Viddler, Hulu, Qik, Revision3, Scribd, Photobucket, PollDaddy',
-			),
-			array(
-				'name' => 'oreis_featured_link_4',
-				'type' => 'text',
-				'label' => 'Item 4 <small>(opcional)</small>',
-				'size' => 'medium',
-				'options' => array(
-					'separator' => '<br />',
-					'split' => array(
-						'title' => array(
-							'input_helper' => 'Título ',
-						),
-						'link' => array(
-							'input_helper' => ' Link',
-						)
-					),
-				),
+				'label' => 'Autor',
 			),
 		)
 	);
-	$meta_boxes[] = array(
-		'id' => 'links_box', 
-		'title' => 'Links úteis', 
-		'post_type' => array('post'), 
-		'context' => 'normal', 
-		'priority' => 'default',
-		'itens' => array(
-			array(
-				'name' => 'links',
-				'type' => 'duplicate_group',
-				'label' => 'Links úteis',
-				'label_helper' => 'No link, não esquecer o <code>http://</code> no começo do link.<br /><br />Caso não seja preechido o nome, será usado o link como texto.',
-				//'layout' => 'block',
-				'group_itens' => array(
-					array(
-						'name' => 'link',
-						'type' => 'text',
-						'size' => 'full',
-						'label' => 'Link',
-					),
-					array(
-						'name' => 'name',
-						'type' => 'text',
-						'size' => 'full',
-						'label' => 'Nome <small>(opcional)</small>',
-					),
-					array(
-						'name' => 'desc',
-						'type' => 'text',
-						'size' => 'full',
-						'label' => 'Descrição',
-					),
-				)
-			),
-		)
-	);
-	$meta_boxes[] = array(
-		'id' => 'related_box', 
-		'title' => 'Conteúdo relacionado', 
-		'post_type' => array('post'), 
-		'context' => 'normal', 
-		'priority' => 'default',
-		'itens' => array(
-			array(
-				'name' => 'related_type',
-				'type' => 'radio',
-				'label' => 'Tipo de conteúdo relacionado',
-				'std' => 'most_recent_in_parent_category',
-				'options' => array(
-					'values' => array(
-						'most_recent_in_category' => 'Mais recentes na mesma categoria',
-						'most_recent_in_parent_category' => 'Mais recentes na mesma categoria principal',
-						'most_viewed_in_category' => 'Mais vistos na mesma categoria',
-						'most_viewed_in_parent_category' => 'Mais vistos na mesma categoria principal',
-						'related_selected_contents' => 'Escolher conteúdos específicos abaixo',
-					),
+	
+	$contratar = get_page_ID_by_name('contratar-apresentacoes');
+	if( (isset($_GET['post']) and $_GET['post'] == $contratar) or (isset($_POST['post_ID']) and $_POST['post_ID'] == $contratar) ){
+		$meta_boxes[] = array(
+			'id' => 'contratar_box', 
+			'title' => 'Arquivo de Necessidades técnicas', 
+			//'desc' => '',
+			'post_type' => array('page'), 
+			'context' => 'normal', 
+			'priority' => 'default',
+			'itens' => array(
+				array(
+					'name' => 'technical_needs',
+					'type' => 'attach_select',
+					'size' => 'medium',
+					'label' => 'Arquivo',
 				),
-			),
-			array(
-				'name' => 'related_selected_contents',
-				'type' => 'search_content_list',
-				'label' => 'Selecionar os posts relacionados',
-				'options' => array(
-					'show_thumbnails' => false,
-					'show_excerpt' => true,
-					'query_search' => array(
-						'post_type' => 'post',
-					),
-					'query_selecteds' => array(
-						'post_type' => 'post',
-					),
-				),
-			),
-			array(
-				'name' => 'color',
-				'type' => 'color_picker',
-				'label' => 'Escolha a cor personalizada',
-			),
-		)
-	);
+			)
+		);
+	}
+	
 	$my_meta_boxes = new BorosMetaBoxes( $meta_boxes );
 }
 
@@ -182,7 +92,7 @@ function my_meta_boxes(){
  * Hierachical Taxonomy:		"{$tax-name}div"
  * Non-Hierachical Taxonomy:	"tagsdiv-{$tax-name}"
  */
-add_action('do_meta_boxes', 'remove_custom_meta_boxes', 10, 3);
+//add_action('do_meta_boxes', 'remove_custom_meta_boxes', 10, 3);
 function remove_custom_meta_boxes( $post_type, $context, $post ){
 	global $wp_meta_boxes, $post;
 	//pre($wp_meta_boxes);

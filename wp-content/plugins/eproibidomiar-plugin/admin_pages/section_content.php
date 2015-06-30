@@ -20,6 +20,26 @@ function section_content(){
 			),
 		),
 	);
+	
+	$args[] = array(
+		'id' => 'site_options_footer',
+		'title' => 'Rodapé',
+		'desc' => 'Texto de rodapé',
+		'block' => 'section',
+		'itens' => array(
+			array(
+				'name' => 'footer_author',
+				'type' => 'text',
+				'label' => 'Autor',
+				'size' => 'medium',
+			),
+			array(
+				'name' => 'footer_text',
+				'type' => 'wp_editor',
+				'label' => 'Texto',
+			),
+		),
+	);
 	return $args;
 }
 

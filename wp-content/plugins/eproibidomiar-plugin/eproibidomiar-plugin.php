@@ -29,9 +29,9 @@ if( !is_plugin_active('boros/boros.php') ) {
 /**
  * CONSTANTES
  */
-define( 'BOROS_BASE_DIR', plugin_dir_path(__FILE__) );
-if( !defined('BOROS_BASE_URL') )
-	define( 'BOROS_BASE_URL', plugins_url( '/', __FILE__ ) );
+define( 'MIAR_DIR', plugin_dir_path(__FILE__) );
+if( !defined('MIAR_URL') )
+	define( 'MIAR_URL', plugins_url( '/', __FILE__ ) );
 
 define( 'JQUERY_URL', get_bloginfo('template_url') . '/js/libs/jquery.min.js' );
 
@@ -46,7 +46,7 @@ define( 'JQUERY_URL', get_bloginfo('template_url') . '/js/libs/jquery.min.js' );
  */
 add_filter( 'boros_extra_form_elements_folder', 'extra_form_elements_folder' );
 function extra_form_elements_folder( $folders ){
-	$folders[] = BOROS_BASE_DIR . 'form_elements';
+	$folders[] = MIAR_DIR . 'form_elements';
 	return $folders;
 }
 

@@ -9,6 +9,31 @@
 
 /**
  * ==================================================
+ * PAGINAÇÃO ========================================
+ * ==================================================
+ * 
+ * 
+ */
+function miar_pagination(){
+	global $wp_query;
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+	$pagination_args = array(
+		'query_type' => 'normal',
+		'current' => $paged,
+		'total' => $wp_query->found_posts,
+		'posts_per_page' => $wp_query->query_vars['posts_per_page'],
+		'options' => array(
+			'num_pages' => 7,
+			'link_class' => '',
+			'prev_text' => '‹ Anterior',
+			'next_text' => 'Próximo ›',
+		),
+	);
+	boros_pagination( $pagination_args );
+}
+
+/**
+ * ==================================================
  * CUSTOM SEARCH FORM ===============================
  * ==================================================
  * 
@@ -20,9 +45,10 @@ function custom_search_form( $form ) {
 	
 	$form = '
 	<form method="get" id="searchform" action="' . home_url() . '/" >
-		<label for="search_term">Busca</label>
-		<input type="text" value="' . $value. '" id="search_term" class="ipt_search_text" name="s" placeholder="Procure no site" />
-		<input type="submit" class="ipt_search_submit" id="searchsubmit" value="ok" />
+		<div class="input-group">
+			<input type="text" value="' . $value. '" id="search_term" class="form-control" name="s" placeholder="Pesquisar" />
+			<span class="input-group-btn"><button class="btn btn-danger" type="submit"><i class="icon-search"></i></button></span>
+		</div>
 	</form>';
 	return $form;
 }

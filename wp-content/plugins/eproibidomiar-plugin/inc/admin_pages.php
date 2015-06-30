@@ -11,13 +11,13 @@
  * ACTIONS / FILTERS ================================
  * ==================================================
  * my_admin_pages_config()	trocar pela função de configuração do seu plugin
- * BOROS_BASE_DIR		trocar pela constante do caminho da seu plugin, usar <code> plugin_dir_path(__FILE__) </code> no arquivo base do plugin
- * BOROS_BASE_URL		trocar pela constante da URL do plugin, usar <code> plugin_dir_url(__FILE__) </code> no arquivo base do plugin
+ * MIAR_DIR		trocar pela constante do caminho da seu plugin, usar <code> plugin_dir_path(__FILE__) </code> no arquivo base do plugin
+ * MIAR_URL		trocar pela constante da URL do plugin, usar <code> plugin_dir_url(__FILE__) </code> no arquivo base do plugin
  * 
  */
-//add_action( 'init', 'my_admin_pages' );
+add_action( 'init', 'my_admin_pages' );
 function my_admin_pages(){
-	$admin_pages = new BorosAdminPages( my_admin_pages_config(), BOROS_BASE_DIR, BOROS_BASE_URL );
+	$admin_pages = new BorosAdminPages( my_admin_pages_config(), MIAR_DIR, MIAR_URL );
 }
 
 /**
@@ -42,33 +42,22 @@ function my_admin_pages(){
 function my_admin_pages_config(){
 	
 	$admin_pages = array(
-		'edit.php' => array(
-			'type' => 'core',
-			'subpages' => array(
-				'category_order' => array(
-					'page_title'	=> 'Ordem das Categorias', 
-					'menu_title'	=> 'Ordenar Categorias', 
-					'menu_slug'		=> 'category_order', 
-					'capability'	=> 'manage_options',
-				)
-			),
-		),
-		'tools.php' => array(
-			'type' => 'core',
-			'subpages' => array(
-				'section_dummy_content' => array(
-					'page_title'	=> 'Conteúdo de Testes', 
-					'menu_title'	=> 'Conteúdo de Testes', 
-					'capability'	=> 'manage_options', 
-				),
-			),
-		),
 		'section_content' => array(
 			'page_title'	=> 'Opções do Site', 
 			'menu_title'	=> 'Opções do Site', 
 			'capability'	=> 'manage_options', 
 			'icon_url'		=> 'dashicons-admin-generic',
 			'subpages' => array(
+				'section_home' => array(
+					'page_title'	=> 'Opções da Home', 
+					'menu_title'	=> 'Opções da Home', 
+					'capability'	=> 'manage_options', 
+				),
+				'section_profiles' => array(
+					'page_title'	=> 'Ficha Técnica', 
+					'menu_title'	=> 'Ficha Técnica', 
+					'capability'	=> 'manage_options', 
+				),
 				'section_general' => array(
 					'page_title'	=> 'Opções de Administração', 
 					'menu_title'	=> 'Opções de Administração', 
@@ -79,13 +68,13 @@ function my_admin_pages_config(){
 					'menu_title'	=> 'Emails', 
 					'capability'	=> 'manage_options', 
 				),
+				'section_networks' => array(
+					'page_title'	=> 'Redes Sociais', 
+					'menu_title'	=> 'Redes Sociais', 
+					'capability'	=> 'manage_options', 
+					'icon_url'		=> 'dashicons-admin-share',
+				),
 			),
-		),
-		'section_networks' => array(
-			'page_title'	=> 'Redes Sociais', 
-			'menu_title'	=> 'Redes Sociais', 
-			'capability'	=> 'manage_options', 
-			'icon_url'		=> 'dashicons-admin-share',
 		),
 	);
 	return $admin_pages;

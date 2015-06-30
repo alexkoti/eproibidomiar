@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<?php echo apply_filters( 'the_title', $post->post_title ); ?>
+				Novidades
 			</div>
 		</div>
 	</div>
@@ -13,15 +13,22 @@
 <div class="blog-box">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-8">
 				<?php
 				if ( have_posts() ){
 					while ( have_posts() ){
 						the_post();
-						get_template_part( 'content', 'page' );
+						get_template_part( 'content' );
 					}
 				}
+				the_post_navigation( array(
+					'next_text' => '<span>‹</span> %title',
+					'prev_text' => '%title <span>›</span>',
+				) );
 				?>
+			</div>
+			<div class="col-md-4">
+				<?php get_sidebar('blog'); ?>
 			</div>
 		</div>
 	</div>

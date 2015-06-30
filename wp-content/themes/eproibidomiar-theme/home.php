@@ -4,7 +4,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<?php echo apply_filters( 'the_title', $post->post_title ); ?>
+				Novidades
+				<?php
+				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+				if( $paged > 1 ){
+					echo " - Página {$paged}";
+				}
+				?>
 			</div>
 		</div>
 	</div>
@@ -13,15 +19,20 @@
 <div class="blog-box">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-8">
 				<?php
 				if ( have_posts() ){
 					while ( have_posts() ){
 						the_post();
-						get_template_part( 'content', 'page' );
+						get_template_part( 'content' );
 					}
 				}
+				
+				miar_pagination();
 				?>
+			</div>
+			<div class="col-md-4">
+				<?php get_sidebar('blog'); ?>
 			</div>
 		</div>
 	</div>
