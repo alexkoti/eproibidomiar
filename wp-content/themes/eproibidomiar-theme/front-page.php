@@ -53,90 +53,28 @@
 			<div class="col-md-3">
 				<h3>Conheça os artistas, acompanhe nossa trajetória.</h3>
 				<p>Veja o espetáculo e tire fotos com os personagens (e elenco) mais fofos que você já viu!</p>
-				<div class="btn-group">
+				<div class="btn-group owl-navigation">
 					<a class="btn btn-danger" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
 					<a class="btn btn-danger" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
 				</div>
 				<p class="gap"></p>
 			</div>
 			<div class="col-md-9">
-				<div id="scroller" class="carousel slide">
-					<div class="carousel-inner">
-						<div class="item active">
-							<div class="row">
-								<div class="col-xs-4">
-									<div class="portfolio-item">
-										<div class="item-inner">
-											<img class="img-responsive" src="<?php echo THEME; ?>/images/portfolio/recent/item1.png" alt="">
-											<h5>Nova - Corporate site template</h5>
-											<div class="overlay">
-												<a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="<?php echo THEME; ?>/images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-4">
-									<div class="portfolio-item">
-										<div class="item-inner">
-											<img class="img-responsive" src="<?php echo THEME; ?>/images/portfolio/recent/item3.png" alt="">
-											<h5>Nova - Corporate site template</h5>
-											<div class="overlay">
-												<a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="<?php echo THEME; ?>/images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-4">
-									<div class="portfolio-item">
-										<div class="item-inner">
-											<img class="img-responsive" src="<?php echo THEME; ?>/images/portfolio/recent/item2.png" alt="">
-											<h5>Nova - Corporate site template</h5>
-											<div class="overlay">
-												<a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="<?php echo THEME; ?>/images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><!--/.row-->
-						</div><!--/.item-->
-						<div class="item">
-							<div class="row">
-								<div class="col-xs-4">
-									<div class="portfolio-item">
-										<div class="item-inner">
-											<img class="img-responsive" src="<?php echo THEME; ?>/images/portfolio/recent/item2.png" alt="">
-											<h5>Nova - Corporate site template</h5>
-											<div class="overlay">
-												<a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="<?php echo THEME; ?>/images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-4">
-									<div class="portfolio-item">
-										<div class="item-inner">
-											<img class="img-responsive" src="<?php echo THEME; ?>/images/portfolio/recent/item1.png" alt="">
-											<h5>Nova - Corporate site template</h5>
-											<div class="overlay">
-												<a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="<?php echo THEME; ?>/images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-4">
-									<div class="portfolio-item">
-										<div class="item-inner">
-											<img class="img-responsive" src="<?php echo THEME; ?>/images/portfolio/recent/item3.png" alt="">
-											<h5>Nova - Corporate site template</h5>
-											<div class="overlay">
-												<a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="<?php echo THEME; ?>/images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div><!--/.item-->
-					</div>
+				<div class="owl-carousel" id="owl-home-photos">
+					<?php
+					$home_photos = get_option('home_photos');
+					if( !empty($home_photos) ){
+						$photos = explode( ',', $home_photos );
+						$i = 1;
+						foreach( $photos as $photo ){
+							$p = get_post($photo);
+							$photo_thumb = get_post_meta($photo, '_thumbnail_id', true);
+							$src = wp_get_attachment_image_src($photo_thumb, 'post-thumbnail');
+							echo "<div class='item' id='slider-photo-{$i}'><div class='inner'><img src='{$src[0]}' class='img-responsive' alt='' /><div class='caption'>{$p->post_title}</div></div></div>";
+							$i++;
+						}
+					}
+					?>
 				</div>
 			</div>
 		</div><!--/.row-->

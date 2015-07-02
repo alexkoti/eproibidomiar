@@ -22,6 +22,7 @@ set_post_thumbnail_size( 250, 250, true );
  * @version 2.9+
  */
 add_image_size( 'blog-image', 750, 400, true );
+//add_image_size( 'home-photo', 175, 1000, false );
 //add_image_size( 'tamanho_b', 800, 800, false );
 //add_image_size( 'tamanho_a', 1000, 1000, false );
 

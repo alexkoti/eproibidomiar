@@ -61,6 +61,7 @@ function register_post_types(){
 		//'show_in_menu' => 'edit.php?post_type=artigo',
 		'supports' => array(
 			'title',
+			'editor',
 			'thumbnail',
 		)
 	); 

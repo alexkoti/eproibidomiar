@@ -275,6 +275,25 @@ body.locked #mobile-menu {
 	font-size:13px;
 	font-weight:normal;
 }
+#home-photos #owl-home-photos .item img {
+	width:100%;
+}
+#home-photos #owl-home-photos.owl-carousel .item {
+	background-color:transparent;
+	height:auto;
+	padding:0 10px;
+}
+#home-photos #owl-home-photos.owl-carousel .item .inner {
+	background:#fff;
+	border:1px solid #eee;
+	padding:10px;
+}
+#home-photos #owl-home-photos.owl-carousel .item .inner .caption {
+	color:#c95151;
+	font-size:13px;
+	margin-top:8px;
+	min-height:36px;
+}
 
 
 
@@ -360,7 +379,7 @@ body.locked #mobile-menu {
 }
 #sobre-chamadas-secundarias {
 	background-color:#ffbb00;
-	margin-top:-130px;
+	margin-top:-110px;
 	padding:30px 0;
 }
 #chamada-3 {

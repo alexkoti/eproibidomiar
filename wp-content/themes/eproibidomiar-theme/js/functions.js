@@ -29,21 +29,42 @@ jQuery(document).ready(function($){
 	
 	
 	/**
-	 * Slider home
+	 * Slider principal
 	 * 
 	 */
-	var owl = $("#owl-slider");
-	owl.owlCarousel({
+	var owlFeats = $("#owl-slider");
+	owlFeats.owlCarousel({
 		navigation : false,
 		singleItem : true
 	});
-	$('.slider-prev-next').on('click', function(e){
+	$('#main-slider .slider-prev-next').on('click', function(e){
 		e.preventDefault();
 		if( $(this).is('.next') ){
-			owl.trigger('owl.next');
+			owlFeats.trigger('owl.next');
 		}
 		else{
-			owl.trigger('owl.prev');
+			owlFeats.trigger('owl.prev');
+		}
+	});
+	
+	/**
+	 * Slider fotos home
+	 * 
+	 */
+	var owlHomePhotos = $("#owl-home-photos");
+	owlHomePhotos.owlCarousel({
+		navigation : false,
+		pagination : false,
+		items : 3,
+		itemsDesktop : [1280, 3]
+	});
+	$('#home-photos .owl-navigation .btn').on('click', function(e){
+		e.preventDefault();
+		if( $(this).attr('data-slide') == 'next' ){
+			owlHomePhotos.trigger('owl.next');
+		}
+		else{
+			owlHomePhotos.trigger('owl.prev');
 		}
 	});
 	

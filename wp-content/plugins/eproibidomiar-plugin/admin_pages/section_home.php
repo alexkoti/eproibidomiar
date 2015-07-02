@@ -49,6 +49,34 @@ function section_home(){
 	);
 	
 	/**
+	 * Fotos
+	 * 
+	 */
+	$args[] = array(
+		'id' => 'front-page-photos',
+		'title' => 'Fotos',
+		//'desc' => '',
+		'block' => 'section',
+		'itens' => array(
+			array(
+				'name' => 'home_photos',
+				'type' => 'search_content_list',
+				'label' => 'Fotos',
+				'options' => array(
+					'query_search' => array(
+						'post_type' => 'foto',
+						'posts_per_page' => -1,
+					),
+					'query_selecteds' => array(
+						'post_type' => 'foto',
+					),
+				),
+			),
+		),
+	);
+	
+	
+	/**
 	 * Testimonials
 	 * 
 	 */
