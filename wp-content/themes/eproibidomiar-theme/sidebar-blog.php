@@ -13,7 +13,8 @@
 	
 	<div class="widget recent-posts">
 		<?php
-		$recent = new WP_Query( array('post_type' => 'post') );
+		$recent = new WP_Query( array('post_type' => 'post', 'posts_per_page' => 5, 'query_id' => 'blog_recents') );
+		//pre($recent);
 		if( $recent->posts ){
 			echo '<ul>';
 			foreach( $recent->posts as $p ){
@@ -22,6 +23,7 @@
 			}
 			echo '</ul>';
 		}
+		wp_reset_query();
 		?>
 	</div>
 	
