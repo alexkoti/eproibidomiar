@@ -18,10 +18,10 @@
 				$img_md = wp_get_attachment_image_src($s['image_md'], 'slider-md');
 				$img_lg = wp_get_attachment_image_src($s['image_lg'], 'slider-lg');
 				echo "<div class='item' id='slider-item-{$i}'>";
-				echo "<div class='item-image visible-xs' style='background-image:url({$img_xs[0]});'></div>";
-				echo "<div class='item-image visible-sm' style='background-image:url({$img_sm[0]});'></div>";
-				echo "<div class='item-image visible-md' style='background-image:url({$img_md[0]});'></div>";
-				echo "<div class='item-image visible-lg' style='background-image:url({$img_lg[0]});'></div>";
+				echo "<div class='item-image item-xs' style='background-image:url({$img_xs[0]});'></div>";
+				echo "<div class='item-image item-sm' style='background-image:url({$img_sm[0]});'></div>";
+				echo "<div class='item-image item-md' style='background-image:url({$img_md[0]});'></div>";
+				echo "<div class='item-image item-lg' style='background-image:url({$img_lg[0]});'></div>";
 				echo "</div>";
 			}
 		}

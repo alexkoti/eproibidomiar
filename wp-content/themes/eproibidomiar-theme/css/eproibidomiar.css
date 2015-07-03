@@ -215,26 +215,50 @@ body.locked #mobile-menu {
 	background-repeat:no-repeat;
 	background-size:auto 100%;
 }
+.owl-carousel .item-xs,
+.owl-carousel .item-sm,
+.owl-carousel .item-md {
+	display:none;
+}
 .owl-carousel .item .item-image {
 	background-repeat:no-repeat;
 	background-position:center center;
 	height:409px;
 }
 @media screen and (max-width:1199px) {
-	.owl-carousel .item .item-image {
-		height:409px;
+	.owl-carousel .item-md {
+		display:block;
 	}
-}
-@media screen and (max-width:991px) {
+	.owl-carousel .item-lg {
+		display:none;
+	}
 	.owl-carousel .item .item-image {
 		height:409px;
 	}
 }
 @media screen and (max-width:767px) {
+	.owl-carousel .item-sm {
+		display:block;
+	}
+	.owl-carousel .item-md {
+		display:none;
+	}
+	.owl-carousel .item .item-image {
+		height:409px;
+	}
+}
+@media screen and (max-width:320px) {
+	.owl-carousel .item-xs {
+		display:block;
+	}
+	.owl-carousel .item-sm {
+		display:none;
+	}
 	.owl-carousel .item .item-image {
 		height:245px;
 	}
 }
+
 /*
 #slider-item-0 {background-image:url('../images/slider/slider-1.png');}
 #slider-item-1 {background-image:url('../images/slider/1.jpg');}
