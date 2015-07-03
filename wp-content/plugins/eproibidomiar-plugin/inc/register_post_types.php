@@ -72,6 +72,9 @@ function register_post_types(){
 			'cb' => '<input type="checkbox" />',
 			'title' => 'Título',
 			'thumb' => 'Foto',
+			'terms_categoria_foto' => 'Categorias',
+			'terms_tag_foto' => 'Tags',
+			'terms_data_foto' => 'Data',
 			'date' => 'Data',
 		)
 	);

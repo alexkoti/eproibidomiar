@@ -48,7 +48,7 @@ function register_taxonomies(){
 	*/
 
 	/**
-	 * REGIÕES
+	 * Categorias de Fotos
 	 * 
 	 */
 	$labels = array(
@@ -69,7 +69,7 @@ function register_taxonomies(){
 		'hierarchical' => true,
 		'labels' => $labels,
 		'public' => true,
-		'query_var' => 'regiao',
+		'query_var' => 'categoria-foto',
 		'capabilities' => array(
 			'manage_terms' => 'manage_categories',
 			'edit_terms'   => 'manage_categories',
@@ -78,6 +78,76 @@ function register_taxonomies(){
 		),
 		'rewrite' => array(
 			'slug' => 'categoria-foto',
+			'hierarchical' => true
+		),
+	));
+
+	/**
+	 * Tags de Fotos
+	 * 
+	 */
+	$labels = array(
+		'name' => 'Tags de Fotos',
+		'singular_name' => 'Tag de Fotos',
+		'search_items' => 'Buscar Tag de Fotos',
+		'popular_items' => 'Tags de Fotos Populares',
+		'all_items' => 'Todas as Tags de Fotos',
+		'edit_item' => 'Editar Tag de Fotos',
+		'update_item' => 'Atualizar Tag de Fotos',
+		'add_new_item' => 'Adicionar nova Tag de Fotos',
+		'new_item_name' => 'Nome da nova Tag de Fotos',
+		// >>> hierarchical labels
+		'parent_item' => 'Tag de Fotos mãe',
+		'parent_item_colon' => 'Tag de Fotos mãe:',
+	); 
+	register_taxonomy('tag_foto', array('foto'), array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'public' => true,
+		'query_var' => 'tag-foto',
+		'capabilities' => array(
+			'manage_terms' => 'manage_categories',
+			'edit_terms'   => 'manage_categories',
+			'delete_terms' => 'manage_categories',
+			'assign_terms' => 'edit_posts',
+		),
+		'rewrite' => array(
+			'slug' => 'tag-foto',
+			'hierarchical' => true
+		),
+	));
+
+	/**
+	 * Datas de Fotos
+	 * 
+	 */
+	$labels = array(
+		'name' => 'Datas de Fotos',
+		'singular_name' => 'Data de Fotos',
+		'search_items' => 'Buscar Data de Fotos',
+		'popular_items' => 'Datas de Fotos Populares',
+		'all_items' => 'Todas as Datas de Fotos',
+		'edit_item' => 'Editar Data de Fotos',
+		'update_item' => 'Atualizar Data de Fotos',
+		'add_new_item' => 'Adicionar nova Data de Fotos',
+		'new_item_name' => 'Nome da nova Data de Fotos',
+		// >>> hierarchical labels
+		'parent_item' => 'Data de Fotos mãe',
+		'parent_item_colon' => 'Data de Fotos mãe:',
+	); 
+	register_taxonomy('data_foto', array('foto'), array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'public' => true,
+		'query_var' => 'data-foto',
+		'capabilities' => array(
+			'manage_terms' => 'manage_categories',
+			'edit_terms'   => 'manage_categories',
+			'delete_terms' => 'manage_categories',
+			'assign_terms' => 'edit_posts',
+		),
+		'rewrite' => array(
+			'slug' => 'data-foto',
 			'hierarchical' => true
 		),
 	));

@@ -89,53 +89,19 @@ function footer_google_analytics(){
 
 /**
  * ==================================================
- * CUSTOM POSTS PER PAGE ============================
+ * PRE GET POSTS ====================================
  * ==================================================
- * Definir a quantidade total de post por página em diferentes situações.
- * A quantidade padrão é definida pela option 'posts_per_page', gravada em wp_options, e definida via admin em 'Configurações > Leitura"
- * Como as situações possíveis de listagens são infinitas, é preciso codificar a verificação para cada caso.
  * 
- * IMPORTANTE:
- * Quando é definido uma página estática para a frontpage, a primeira vez que é chamado o filtro 'pre_get_posts', ocorre um erro, onde não se consegue acesso ao queried object.
- * Para resolver isso, é verificado se está na frontpage comparando a query_var 'page_id', que sempre está nas querys com a option 'page_on_front'. Em caso positivo, 
- * estamos na frontpage, portanto $query é retornado sem modificações. Essa primeira chamada de 'pre_get_posts' nesse caso específico não precisa ser modificada em nenhum caso.
- * 
- * As posteriores chamadas de pre_get_posts que precisem verificar is_front_page() rodarão normalmente. Por exemplo, se for feita uma nova requisição no meio da página, como
- * query_posts() ou WP_Query(), as verificações de is_front_page() funcionarão como esperado.
  * 
  */
-//add_filter( 'pre_get_posts', 'filter_pre_get_posts' );
+add_filter( 'pre_get_posts', 'filter_pre_get_posts' );
 function filter_pre_get_posts( $query ){
-	$page_on_front = get_option('page_on_front');
-	if( $query->query_vars['page_id'] == $page_on_front ){
-		return $query;
-	}
 	
-	// definir a quantidade de posts padrão em chamadas de query_posts() e WP_Query() na frontpage. Sobrepõem qualquer definição das funções.
-	if( is_front_page() ){
-		$query->query_vars['posts_per_page'] = 3;
-	}
-	
-	// definir a quantidade de posts padrão na home(home de posts)
-	if( is_home() ){
-		$query->query_vars['posts_per_page'] = 2;
-	}
-	
-	// posts per page em fábrica de ideias
-	if(
-		(isset($wp_query->query_vars['post_type']) and $wp_query->query_vars['post_type'] == 'ideia') OR 
-		(isset($wp_query->query_vars['taxonomy']) and $wp_query->query_vars['taxonomy'] == 'category-ideias')
-	){
-		if( $wp_query->is_single != true )
-			$query->query_vars['posts_per_page'] = 14;
-	}
-	
-	// remover vídeos da listagem normal de blogs
-	if( !is_front_page() ){
-		if ( isset($query->category_name) and $query->category_name != 'videos' AND $wp_query->is_admin == false ) {
-			$exclude = get_cat_ID('videos');
-			$query->set('cat', '-'.$exclude);
-		}
+	if( !is_admin() && $query->is_main_query() and isset($query->query['pagename']) and $query->query['pagename'] == 'fotos' ){
+		//pre($query);
+		$query->set( 'pagename', false );
+		$query->set( 'post_type', 'foto' );
+		$query->set( 'posts_per_page', 10 );
 	}
 
 	return $query;

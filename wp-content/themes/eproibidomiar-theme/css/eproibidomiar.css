@@ -53,6 +53,20 @@ body > section,
 	padding:30px 0;
 }
 
+/**
+ * Remover gutter de determinadas colunas
+ * @link http://stackoverflow.com/a/21282059
+ */
+.row.no-gutter {
+	margin-left: 0;
+	margin-right: 0;
+}
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+	padding-right: 0;
+	padding-left: 0;
+}
+
 
 
 /**
@@ -155,10 +169,14 @@ body.locked #mobile-menu {
 	padding:0;
 }
 #mobile-menu .sub-menu li {
-	list-style-position:inside;
+	list-style:none;
 }
 #mobile-menu .sub-menu li a {
-	
+	background-image:url('../images/ico/ico-categories.png');
+	background-repeat:no-repeat;
+	background-position:left center;
+	background-position: left 13px top 9px;
+	padding-left: 40px;
 }
 #mobile-menu .navbar-collapse {
 	max-height: none;
@@ -264,7 +282,7 @@ body.locked #mobile-menu {
  * 
  */
 #home-photos {
-	background:url('../images/bg-pattern-1.png') repeat top left;
+	background:url('../images/bg-pattern-1.png') repeat top left ;
 	color:#fff;
 }
 #home-photos h3 {
@@ -755,6 +773,39 @@ ul.pagination > li.active:hover span {
 .profiles-author .profile-item.profile-author .profile-photo img {
 	border:5px solid #fff;
 	width:242px;
+}
+
+
+
+/**
+ * ==================================================
+ * FOTOS ============================================
+ * ==================================================
+ * 
+ * 
+ */
+.fotos-box {
+	background:url('../images/bg-pattern-2.png') repeat top left;
+}
+.fotos-box .photos-list {
+	margin-top:25px;
+}
+.fotos-box .photo-item {
+	position:relative;
+}
+.fotos-box .photo-item .inner {
+	background:#fff;
+	border:1px solid #eee;
+	margin:1px;
+	padding:10px;
+}
+.fotos-box .photo-item .inner .photo img {
+	width:100%;
+}
+.fotos-box .photo-item .inner .caption {
+	color:#c95151;
+	font-size:13px;
+	margin-top:8px;
 }
 
 

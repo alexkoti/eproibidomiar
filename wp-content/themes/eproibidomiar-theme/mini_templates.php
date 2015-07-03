@@ -42,9 +42,13 @@ add_filter( 'get_search_form', 'custom_search_form' );
 function custom_search_form( $form ) {
 	$query = esc_attr(apply_filters('the_search_query', get_search_query()));
 	$value = ( $query == '' ) ? '' : $query;
+	$search_url = home_url('/');
+	if( is_page('fotos') ){
+		$search_url = get_permalink( get_page_ID_by_name('fotos') );
+	}
 	
 	$form = '
-	<form method="get" id="searchform" action="' . home_url() . '/" >
+	<form method="get" id="searchform" action="' . $search_url . '" >
 		<div class="input-group">
 			<input type="text" value="' . $value. '" id="search_term" class="form-control" name="s" placeholder="Pesquisar" />
 			<span class="input-group-btn"><button class="btn btn-danger" type="submit"><i class="icon-search"></i></button></span>
