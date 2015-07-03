@@ -70,12 +70,16 @@ add_filter( 'nav_menu_css_class', 'miar_nav_menu_css_class', 999999999999, 2 );
 function miar_nav_menu_css_class( $classes, $item ){
 	if( (is_post_type_archive('foto') or is_tax(array('categoria_foto', 'tag_foto', 'data_foto'))) ){
 		if( $item->title == 'Novidades' ){
-			//pre($classes);
 			$classes = array('menu-item');
 		}
 		elseif( $item->title == 'Fotos' ){
 			$classes[] = 'active';
+			return $classes;
 		}
+	}
+	if( is_singular('foto') and $item->title == 'Fotos' ){
+		$classes[] = 'active';
+		return $classes;
 	}
 	
 	return $classes;
