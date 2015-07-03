@@ -22,6 +22,10 @@ set_post_thumbnail_size( 250, 250, true );
  * @version 2.9+
  */
 add_image_size( 'blog-image', 750, 400, true );
+add_image_size( 'slider-xs', 320,  245, true );
+add_image_size( 'slider-sm', 768,  409, true );
+add_image_size( 'slider-md', 1200, 409, true );
+add_image_size( 'slider-lg', 1920, 409, true );
 //add_image_size( 'home-photo', 175, 1000, false );
 //add_image_size( 'tamanho_b', 800, 800, false );
 //add_image_size( 'tamanho_a', 1000, 1000, false );

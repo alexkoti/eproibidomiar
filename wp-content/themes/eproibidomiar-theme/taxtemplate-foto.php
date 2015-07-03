@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				Fotos
+				<?php single_term_title('Fotos - '); ?>
 			</div>
 		</div>
 	</div>
@@ -17,27 +17,18 @@
 				<div class="row no-gutter">
 					<div id="grid" data-columns>
 						<?php
-						$args = array(
-							'post_type' => 'foto',
-							'posts_per_page' => 10,
-						);
-						$paged = isset($_GET['pg']) ? (int)$_GET['pg'] : 1;
-						$args['paged'] = $paged;
-						$fotos = new WP_Query($args);
-						if( $fotos->posts ){
-							foreach( $fotos->posts as $post ){
-								setup_postdata($post);
+						if ( have_posts() ){
+							while ( have_posts() ){
+								the_post();
 								get_template_part('photo', 'item');
 							}
 						}
-						
-						wp_reset_query();
 						?>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<?php miar_pagination($fotos, $paged); ?>
+						<?php miar_pagination(); ?>
 					</div>
 				</div>
 			</div>

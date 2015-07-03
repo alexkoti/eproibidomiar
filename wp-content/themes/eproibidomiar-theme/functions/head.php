@@ -99,6 +99,7 @@ function add_frontend_scripts(){
 	$js->jquery('jquery.validate.min', 'libs');
 	$js->jquery('bootstrap.min', 'libs');
 	$js->jquery('owl.carousel.min', 'libs');
+	$js->jquery('salvattore.min', 'libs');
 	$js->jquery('functions');
 	
 	/**

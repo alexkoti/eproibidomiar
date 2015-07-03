@@ -55,6 +55,27 @@ function my_meta_boxes(){
 		)
 	);
 	
+	$meta_boxes[] = array(
+		'id' => 'image_download_box', 
+		'title' => 'Imagem para download', 
+		//'desc' => '',
+		'post_type' => array('foto'), 
+		'context' => 'normal', 
+		'priority' => 'default',
+		'itens' => array(
+			array(
+				'name' => 'image_download',
+				'type' => 'special_image',
+				'label' => 'Imagem',
+				'options' => array(
+					'image_size' => 'thumbnail',
+					'layout' => 'row',
+					'width' => 100,
+				),
+			),
+		)
+	);
+	
 	$contratar = get_page_ID_by_name('contratar-apresentacoes');
 	if( (isset($_GET['post']) and $_GET['post'] == $contratar) or (isset($_POST['post_ID']) and $_POST['post_ID'] == $contratar) ){
 		$meta_boxes[] = array(

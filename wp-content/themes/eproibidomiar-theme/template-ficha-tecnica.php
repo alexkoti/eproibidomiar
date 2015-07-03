@@ -18,7 +18,7 @@ $blocks = array(
 	),
 	array(
 		'name' => 'accessibility',
-		'cols' => 'col-md-3 col-sm-6',
+		'cols' => 'col-md-4 col-sm-6',
 	),
 	array(
 		'name' => 'technicians',

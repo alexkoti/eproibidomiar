@@ -68,6 +68,18 @@ jQuery(document).ready(function($){
 		}
 	});
 	
+	/**
+	 * Masonry Fotos
+	 * 
+	 */
+	//var $container = $('#photos-masonry');
+	//$container.imagesLoaded(function() {
+	//	$container.masonry({
+	//		itemSelector: '.photo-item',
+	//		isAnimated: true,
+	//		percentPosition: true
+	//	});
+	//});
 	
 	/**
 	 * VALIDATION

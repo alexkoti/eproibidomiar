@@ -8,10 +8,24 @@
 		<i class="icon-angle-right"></i>
 	</a>
 	<div id="owl-slider" class="owl-carousel owl-theme">
-		<div class="item" id="slider-item-0"></div>
-		<div class="item" id="slider-item-1"></div>
-		<div class="item" id="slider-item-2"></div>
-		<div class="item" id="slider-item-3"></div>
+		<?php
+		$slides = get_option('home_slider');
+		$i = 1;
+		if( !empty($slides) ){
+			foreach( $slides as $s ){
+				$img_xs = wp_get_attachment_image_src($s['image_xs'], 'slider-xs');
+				$img_sm = wp_get_attachment_image_src($s['image_sm'], 'slider-sm');
+				$img_md = wp_get_attachment_image_src($s['image_md'], 'slider-md');
+				$img_lg = wp_get_attachment_image_src($s['image_lg'], 'slider-lg');
+				echo "<div class='item' id='slider-item-{$i}'>";
+				echo "<div class='item-image visible-xs' style='background-image:url({$img_xs[0]});'></div>";
+				echo "<div class='item-image visible-sm' style='background-image:url({$img_sm[0]});'></div>";
+				echo "<div class='item-image visible-md' style='background-image:url({$img_md[0]});'></div>";
+				echo "<div class='item-image visible-lg' style='background-image:url({$img_lg[0]});'></div>";
+				echo "</div>";
+			}
+		}
+		?>
 	</div>
 </section>
 

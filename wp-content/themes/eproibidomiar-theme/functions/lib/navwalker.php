@@ -71,7 +71,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
             }
 
             if(in_array('current-menu-parent', $classes)) { $class_names .= ' active'; }
-            if(in_array('current_page_parent', $classes)) { $class_names .= ' active'; }
+            //if(in_array('current_page_parent', $classes)) { $class_names .= ' active'; }
             //End modification
 
             if(in_array('current-menu-item', $classes)) { $class_names .= ' active'; }

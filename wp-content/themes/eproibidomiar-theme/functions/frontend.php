@@ -94,14 +94,18 @@ function footer_google_analytics(){
  * 
  * 
  */
-add_filter( 'pre_get_posts', 'filter_pre_get_posts' );
+//add_filter( 'pre_get_posts', 'filter_pre_get_posts' );
 function filter_pre_get_posts( $query ){
 	
-	if( !is_admin() && $query->is_main_query() and isset($query->query['pagename']) and $query->query['pagename'] == 'fotos' ){
+	if( !is_admin() && $query->is_main_query() ){
 		//pre($query);
-		$query->set( 'pagename', false );
-		$query->set( 'post_type', 'foto' );
-		$query->set( 'posts_per_page', 10 );
+		
+		if( isset($query->query['pagename']) and $query->query['pagename'] == 'fotos' ){
+			$query->set( 'pagename', false );
+			$query->set( 'post_type', 'foto' );
+			$query->set( 'posts_per_page', 3 );
+			return $query;
+		}
 	}
 
 	return $query;

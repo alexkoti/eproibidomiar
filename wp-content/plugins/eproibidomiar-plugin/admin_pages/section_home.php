@@ -7,6 +7,81 @@ function section_home(){
 		'block' => 'header',
 	);
 	
+	/**
+	 * Slider
+	 * 
+	 */
+	$args['sliders'] = array(
+		'id' => 'sliders_box',
+		'title' => 'Sliders',
+		'block' => 'section',
+		'itens' => array(
+			array(
+				'name' => 'home_slider',
+				'type' => 'duplicate_group',
+				'label' => 'Slides',
+				'group_itens' => array(
+					array(
+						'name' => 'title',
+						'type' => 'text',
+						'size' => 'full',
+						'label' => 'Título',
+					),
+					array(
+						'name' => 'subtitle',
+						'type' => 'text',
+						'size' => 'full',
+						'label' => 'Subtítulo',
+					),
+					array(
+						'name' => 'image_xs',
+						'type' => 'special_image',
+						'label' => 'Imagem Mobile (XS)',
+						'options' => array(
+							'image_size' => 'thumbnail',
+							'layout' => 'row',
+							'width' => 100,
+						),
+					),
+					array(
+						'name' => 'image_sm',
+						'type' => 'special_image',
+						'label' => 'Imagem Tablet (SM)',
+						'options' => array(
+							'image_size' => 'thumbnail',
+							'layout' => 'row',
+							'width' => 100,
+						),
+					),
+					array(
+						'name' => 'image_md',
+						'type' => 'special_image',
+						'label' => 'Imagem Desktop (MD)',
+						'options' => array(
+							'image_size' => 'thumbnail',
+							'layout' => 'row',
+							'width' => 100,
+						),
+					),
+					array(
+						'name' => 'image_lg',
+						'type' => 'special_image',
+						'label' => 'Imagem Destop Large (LG)',
+						'options' => array(
+							'image_size' => 'thumbnail',
+							'layout' => 'row',
+							'width' => 100,
+						),
+					),
+				),
+			),
+		),
+	);
+	
+	/**
+	 * Chamadas
+	 * 
+	 */
 	$chamadas = array();
 	for( $i = 1; $i <= 3; $i++ ){
 		$chamadas[] = array(

@@ -62,34 +62,28 @@ function register_sidebars_init(){
  * ==================================================
  * CLASSES DO MENU ==================================
  * ==================================================
- * Adicionar class active no item do menu, conforme o post_type navegado.
- * Por exemplo, deixar ativo uma 'page' chamada 'Vídeos', quando se está em uma listagem do post_type 'video'.
  * 
- * @ATENÇÂO: a class é aplicada no link <a>, e não na li parent
+ * 
+ * 
  */
-//add_filter( 'walker_nav_menu_start_el', 'add_class_to_custom_post_type_menu', 10, 4 );
-function add_class_to_custom_post_type_menu( $item_output, $item, $depth, $args ){
-	global $post;
-	
-	if( !is_home() or !is_front_page() ){
-		/**
-		 * Este trecho tenta aplicar automaticamente o link ativo caso o título do conteúdo tenha o mesmo nome do post_type - label plural do post_type, por exemplo, Posts, Vídeos, Eventos
-		 */
-		$post_types = get_post_types( '', 'objects' );
-		$current_type = get_post_type();
-		foreach( $post_types as $pt ){
-			if( $current_type == $pt->name and $item->title == $pt->labels->name )
-				$item_output = str_replace( '">', '" class="active">', $item_output );
+add_filter( 'nav_menu_css_class', 'miar_nav_menu_css_class', 999999999999, 2 );
+function miar_nav_menu_css_class( $classes, $item ){
+	if( (is_post_type_archive('foto') or is_tax(array('categoria_foto', 'tag_foto', 'data_foto'))) ){
+		if( $item->title == 'Novidades' ){
+			//pre($classes);
+			$classes = array('menu-item');
 		}
-		
-		/**
-		 * Adições personalizadas, definir qual post_type ativará determinado content(page, post, custom) pelo título.
-		 * Sempre verificar se a ativação já não foi feita no bloco anterior.
-		 */
-		if( 'post' == get_post_type() and $item->title == 'Teste' ){
-			$item_output = str_replace( '">', '" class="active">', $item_output );
+		elseif( $item->title == 'Fotos' ){
+			$classes[] = 'active';
 		}
 	}
+	
+	return $classes;
+}
+//add_filter( 'walker_nav_menu_start_el', 'aaa', 99, 4 );
+function aaa($item_output, $item, $depth, $args){
+	pre(func_get_args());
+	
 	return $item_output;
 }
 
