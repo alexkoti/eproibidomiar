@@ -100,8 +100,8 @@
 </section><!--/#photos-->
 
 <?php
-$testimonials = get_option('home_testimonials');
-if( !empty($testimonials) ){
+$testimonials_opt = get_option('home_testimonials');
+if( !empty($testimonials_opt) ){
 ?>
 <section id="testimonial">
 	<div class="container">
@@ -114,19 +114,21 @@ if( !empty($testimonials) ){
 				<div class="gap"></div>
 				<div class="row">
 					<?php
+					$testimonials = new WP_Query( array('post_type' => 'post', 'post__in' => explode(',', $testimonials_opt), 'orderby' => 'post__in') );
 					echo '<div class="col-md-6">';
 					$i = 1;
-					foreach( $testimonials as $t ){
+					foreach( $testimonials->posts as $t ){
 					?>
 					<blockquote>
-						<p><?php echo $t['text'] ?></p>
-						<small><?php echo $t['author'] ?></small>
+						<p><?php echo apply_filters('the_title', $t->post_title); ?></p>
+						<small><?php echo get_post_meta($t->ID, 'testimonial_author', true); ?></small>
 					</blockquote>
 					<?php
 						if( $i == 2 ){ echo '</div><div class="col-md-6">';}
 						else{$i++;}
 					}
 					echo '</div>';
+					wp_reset_query();
 					?>
 				</div>
 			</div>

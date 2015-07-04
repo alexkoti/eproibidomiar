@@ -163,23 +163,17 @@ function section_home(){
 		'itens' => array(
 			array(
 				'name' => 'home_testimonials',
-				'type' => 'duplicate_group',
-				'label' => 'Depoimentos',
-				//'label_helper' => 'No link, não esquecer o <code>http://</code> no começo do link.<br /><br />Caso não seja preechido o nome, será usado o link como texto.',
-				//'layout' => 'block',
-				'group_itens' => array(
-					array(
-						'name' => 'author',
-						'type' => 'text',
-						'size' => 'medium',
-						'label' => 'Autor',
+				'type' => 'search_content_list',
+				'label' => 'Fotos',
+				'options' => array(
+					'query_search' => array(
+						'post_type' => 'post',
+						'posts_per_page' => -1,
+						'category_name' => 'depoimentos',
 					),
-					array(
-						'name' => 'text',
-						'type' => 'textarea',
-						'size' => 'medium',
-						'label' => 'Texto',
-						'attr' => array('class' => 'ipth_small'),
+					'query_selecteds' => array(
+						'post_type' => 'post',
+						'category_name' => 'depoimentos',
 					),
 				),
 			),
