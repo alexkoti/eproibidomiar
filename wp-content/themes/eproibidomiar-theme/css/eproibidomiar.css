@@ -628,6 +628,10 @@ ul.pagination > li.active:hover span {
 	padding-top:25px;
 	padding-bottom:25px;
 }
+.sidebar.sidebar-xs {
+	padding-top:0;
+	padding-bottom:0;
+}
 .sidebar .categories ul {
 	margin:0;
 	list-style:none;
@@ -903,11 +907,28 @@ ul.pagination > li.active:hover span {
 	font-size:13px;
 	margin-top:8px;
 }
+.fotos-box .photo-item .inner .caption p {
+	margin:0;
+}
+.fotos-box .photo-item .inner .caption .download {
+	display:none;
+}
 .fotos-box .pagination-photos {
 	
 }
 .fotos-box #photos-masonry {
 	
+}
+/* legenda do lightbox */
+.pswp__caption__center {
+	color:#fff;
+	font-size:13px;
+	text-align:center;
+}
+.pswp__caption__center a {
+	color:#ffbb00;
+	display:block;
+	text-decoration:underline;
 }
 
 

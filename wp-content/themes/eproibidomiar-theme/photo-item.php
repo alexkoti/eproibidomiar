@@ -13,7 +13,8 @@
 			<a href="<?php echo $image_lightbox[0]; ?>" class="lightbox-image" data-sizes="<?php echo "{$image_lightbox[1]}x{$image_lightbox[2]}"; ?>"><?php the_post_thumbnail( 'medium', array( 'alt' => get_the_title(), 'class' => 'img-responsive' ) ); ?></a>
 		</div>
 		<div class="caption">
-			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			<p><a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a></p>
+			<?php if( !empty($image_download) ){ echo "<p class='download'><a href='{$link}' target='blank'>Baixar foto</a></p>"; } ?>
 		</div>
 	</div>
 </article>

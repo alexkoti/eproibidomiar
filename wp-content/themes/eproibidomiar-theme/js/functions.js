@@ -83,7 +83,14 @@ jQuery(document).ready(function($){
 		$('#grid .photo-item').each(function(){
 			var link = $(this).find('.photo a.lightbox-image'); console.log(link.attr('data-sizes'));
 			var sizes = link.attr('data-sizes').split('x');
-			var title = $(this).find('.caption').text();
+			var title = $(this).find('.caption .title').text();
+			var download = $(this).find('.caption .download').html();
+			if( download ){
+				var caption = title + download;
+			}
+			else{
+				var caption = title;
+			}
 			var photo = {
 				index : $(this).attr('data-index'),
 				src : link.attr('href'),
@@ -91,7 +98,7 @@ jQuery(document).ready(function($){
 				h : sizes[1]
 			}
 			if( title.length > 0 ){
-				photo.title = title;
+				photo.title = caption;
 			}
 			items.push(photo);
 		});
