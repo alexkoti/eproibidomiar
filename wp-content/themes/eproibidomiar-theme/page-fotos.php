@@ -29,7 +29,7 @@
 						<?php
 						$args = array(
 							'post_type' => 'foto',
-							'posts_per_page' => 10,
+							'posts_per_page' => 20,
 						);
 						$paged = isset($_GET['pg']) ? (int)$_GET['pg'] : 1;
 						$args['paged'] = $paged;
@@ -38,7 +38,7 @@
 							$i = 0;
 							foreach( $fotos->posts as $post ){
 								setup_postdata($post);
-								get_template_part('photo', 'item');
+								include('photo-item.php');
 								$i++;
 							}
 						}

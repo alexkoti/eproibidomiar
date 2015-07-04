@@ -72,16 +72,14 @@ jQuery(document).ready(function($){
 	 * Lightbox fotos
 	 * 
 	 */
-	if( $('#grid').length ){
-		console.log(1);
-		//$('#grid .photo-item .lightbox-image')
+	if( $('.photo-item').length ){
 		var pswpElement = document.querySelectorAll('.pswp')[0];
 		
 		// build items array
 		var items = [];
 		
-		$('#grid .photo-item').each(function(){
-			var link = $(this).find('.photo a.lightbox-image'); console.log(link.attr('data-sizes'));
+		$('.photo-item').each(function(){
+			var link = $(this).find('.photo a.lightbox-image');
 			var sizes = link.attr('data-sizes').split('x');
 			var title = $(this).find('.caption .title').text();
 			var download = $(this).find('.caption .download').html();
@@ -92,7 +90,7 @@ jQuery(document).ready(function($){
 				var caption = title;
 			}
 			var photo = {
-				index : $(this).attr('data-index'),
+				index : Number($(this).attr('data-index')),
 				src : link.attr('href'),
 				w : sizes[0],
 				h : sizes[1]
@@ -105,7 +103,7 @@ jQuery(document).ready(function($){
 		// ordenar array
 		items.sort( lightbox_compare );
 		
-		$('#grid .photo-item .lightbox-image').on('click', function(evt){
+		$('.photo-item .lightbox-image').on('click', function(evt){
 			evt.preventDefault();
 			var elem_index = Number($(this).closest('.photo-item').attr('data-index'));
 			var options = { index : elem_index, loop : true, shareButtons : false }
@@ -128,6 +126,15 @@ jQuery(document).ready(function($){
 		}
 		return 0;
 	}
+	
+	/**
+	 * Back to top
+	 * 
+	 */
+	$('#menu-rodape .gototop a').click(function(e){
+		e.preventDefault();
+		$("html, body").animate({ scrollTop: 0 }, 500);
+	});
 	
 	/**
 	 * VALIDATION

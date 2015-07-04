@@ -28,9 +28,11 @@
 					<div id="grid" data-columns>
 						<?php
 						if ( have_posts() ){
+							$i = 0;
 							while ( have_posts() ){
 								the_post();
-								get_template_part('photo', 'item');
+								include('photo-item.php');
+								$i++;
 							}
 						}
 						?>

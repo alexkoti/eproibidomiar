@@ -97,9 +97,17 @@ function footer_google_analytics(){
 add_filter( 'pre_get_posts', 'filter_pre_get_posts' );
 function filter_pre_get_posts( $query ){
 	
-	if( !is_admin() && !$query->is_main_query() ){
-		if( isset($query->query['query_id']) and $query->query['query_id'] == 'blog_recents' ){
-			$query->set('post_type', 'post');
+	if( !is_admin() ){
+		if( !$query->is_main_query() ){
+			// corrigir bug que adiciona todos post types nessa query
+			if( isset($query->query['query_id']) and $query->query['query_id'] == 'blog_recents' ){
+				$query->set('post_type', 'post');
+			}
+		}
+		else{
+			if( is_tax(array('categoria_foto', 'tag_foto', 'data_foto')) ){
+				$query->set('posts_per_page', 20);
+			}
 		}
 	}
 

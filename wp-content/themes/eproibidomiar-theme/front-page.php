@@ -64,9 +64,9 @@
 <section id="home-photos">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3">
-				<h3>Conheça os artistas, acompanhe nossa trajetória.</h3>
-				<p>Veja o espetáculo e tire fotos com os personagens (e elenco) mais fofos que você já viu!</p>
+			<div class="col-md-3 call-to-action">
+				<h3><a href="<?php page_permalink_by_name('fotos'); ?>">Conheça os artistas, acompanhe nossa trajetória.</a></h3>
+				<p><a href="<?php page_permalink_by_name('fotos'); ?>">Veja o espetáculo e tire fotos com os personagens (e elenco) mais fofos que você já viu!</a></p>
 				<div class="btn-group owl-navigation">
 					<a class="btn btn-danger" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
 					<a class="btn btn-danger" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
@@ -79,12 +79,16 @@
 					$home_photos = get_option('home_photos');
 					if( !empty($home_photos) ){
 						$photos = explode( ',', $home_photos );
-						$i = 1;
+						$i = 0;
 						foreach( $photos as $photo ){
-							$p = get_post($photo);
-							$photo_thumb = get_post_meta($photo, '_thumbnail_id', true);
-							$src = wp_get_attachment_image_src($photo_thumb, 'post-thumbnail');
-							echo "<div class='item' id='slider-photo-{$i}'><div class='inner'><img src='{$src[0]}' class='img-responsive' alt='' /><div class='caption'>{$p->post_title}</div></div></div>";
+							$post = get_post($photo);
+							setup_postdata($post);
+							include('photo-item.php');
+							wp_reset_postdata();
+							//$photo_large = get_post_meta($photo, 'large', true);
+							//$photo_thumb = get_post_meta($photo, '_thumbnail_id', true);
+							//$src = wp_get_attachment_image_src($photo_thumb, 'post-thumbnail');
+							//echo "<div class='item' id='slider-photo-{$i}' data-index='{$i}'><div class='inner'><div class='photo'><a href='{$photo_large[0]}'><img src='{$src[0]}' class='img-responsive' alt='' /></a></div><div class='caption'><span class='title'>{$p->post_title}</span></div></div></div>";
 							$i++;
 						}
 					}
