@@ -27,7 +27,7 @@
 add_action( 'init', 'register_post_types' );
 function register_post_types(){
 	/**
-	 * Noticias
+	 * Fotos
 	 * 
 	 */
 	$labels = array(
@@ -75,6 +75,56 @@ function register_post_types(){
 			'terms_categoria_foto' => 'Categorias',
 			'terms_tag_foto' => 'Tags',
 			'terms_data_foto' => 'Data',
+			'date' => 'Data',
+		)
+	);
+	new BorosPostTypeColumns( $columns_config );
+	
+	/**
+	 * Contatos
+	 * 
+	 */
+	$labels = array(
+		'name' => 'Contatos',
+		'singular_name' => 'Contato',
+		'menu_name' => 'Contatos',
+		'add_new' => 'Nova Contato',
+		'add_new_item' => 'Adicionar Contato',
+		'edit_item' => 'Editar Contato',
+		'new_item' => 'Novo Contato',
+		'view_item' => 'Ver Contato',
+		'search_items' => 'Buscar Contato',
+		'not_found' =>  'Nenhum encontrado',
+		'not_found_in_trash' => 'Nenhum encontrado na lixeira',
+		'parent_item_colon' => ''
+	);
+	$args = array(
+		'labels' => $labels,
+		'description' => 'Contatos',
+		'public' => false,
+		'publicly_queryable' => false,
+		'exclude_from_search' => true,
+		'show_ui' => true,
+		'show_in_nav_menus' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		//'has_archive' => 'Contatos',
+		'menu_icon' => 'dashicons-email-alt',
+		//'show_in_menu' => 'edit.php?post_type=artigo',
+		'supports' => array(
+			'title',
+			'editor',
+			'thumbnail',
+		)
+	); 
+	register_post_type( 'contato' , $args );
+	$columns_config = array(
+		'post_type' => 'contato',
+		'columns' => array(
+			'cb' => '<input type="checkbox" />',
+			'title' => 'Título',
 			'date' => 'Data',
 		)
 	);
