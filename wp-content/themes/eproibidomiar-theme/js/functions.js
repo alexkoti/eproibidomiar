@@ -69,17 +69,58 @@ jQuery(document).ready(function($){
 	});
 	
 	/**
-	 * Masonry Fotos
+	 * Lightbox fotos
 	 * 
 	 */
-	//var $container = $('#photos-masonry');
-	//$container.imagesLoaded(function() {
-	//	$container.masonry({
-	//		itemSelector: '.photo-item',
-	//		isAnimated: true,
-	//		percentPosition: true
-	//	});
-	//});
+	if( $('#grid').length ){
+		console.log(1);
+		//$('#grid .photo-item .lightbox-image')
+		var pswpElement = document.querySelectorAll('.pswp')[0];
+		
+		// build items array
+		var items = [];
+		
+		$('#grid .photo-item').each(function(){
+			var link = $(this).find('.photo a.lightbox-image'); console.log(link.attr('data-sizes'));
+			var sizes = link.attr('data-sizes').split('x');
+			var title = $(this).find('.caption').text();
+			var photo = {
+				index : $(this).attr('data-index'),
+				src : link.attr('href'),
+				w : sizes[0],
+				h : sizes[1]
+			}
+			if( title.length > 0 ){
+				photo.title = title;
+			}
+			items.push(photo);
+		});
+		// ordenar array
+		items.sort( lightbox_compare );
+		
+		$('#grid .photo-item .lightbox-image').on('click', function(evt){
+			evt.preventDefault();
+			var elem_index = Number($(this).closest('.photo-item').attr('data-index'));
+			var options = { index : elem_index, loop : true, shareButtons : false }
+			var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options );
+			gallery.init(elem_index);
+		});
+	}
+	
+	/**
+	 * Ordenar array de objetos
+	 * @link http://stackoverflow.com/a/1129270
+	 * 
+	 */
+	function lightbox_compare( a, b ) {
+		if( a.index < b.index ){
+			return -1;
+		}
+		if( a.index > b.index ){
+			return 1;
+		}
+		return 0;
+	}
 	
 	/**
 	 * VALIDATION

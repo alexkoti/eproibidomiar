@@ -47,6 +47,8 @@ function add_frontend_styles(){
 	$css->add('main');
 	$css->add('owl.carousel');
 	$css->add('owl.theme');
+	$css->add('photoswipe');
+	$css->add('default-skin', 'default-skin');
 	$css->add('eproibidomiar');
 	
 	if( defined('LOCALHOST') and LOCALHOST == true ){
@@ -100,6 +102,8 @@ function add_frontend_scripts(){
 	$js->jquery('bootstrap.min', 'libs');
 	$js->jquery('owl.carousel.min', 'libs');
 	$js->jquery('salvattore.min', 'libs');
+	$js->jquery('photoswipe.min', 'libs');
+	$js->jquery('photoswipe-ui-default.min', 'libs');
 	$js->jquery('functions');
 	
 	/**

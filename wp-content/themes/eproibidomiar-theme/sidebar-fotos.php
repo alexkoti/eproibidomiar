@@ -4,8 +4,8 @@
 </div>
 <div class="widget categories">
 	<ul>
-		<li><a href="<?php page_permalink_by_name('fotos'); ?>">Todas as categorias</a></li>
 		<?php wp_list_categories( array('taxonomy' => 'categoria_foto', 'title_li' => false) ); ?>
+		<li><a href="<?php page_permalink_by_name('fotos'); ?>">Todas</a></li>
 	</ul>
 </div>
 <div class="widget tags">

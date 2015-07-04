@@ -25,12 +25,13 @@
 						$args['paged'] = $paged;
 						$fotos = new WP_Query($args);
 						if( $fotos->posts ){
+							$i = 0;
 							foreach( $fotos->posts as $post ){
 								setup_postdata($post);
 								get_template_part('photo', 'item');
+								$i++;
 							}
 						}
-						
 						wp_reset_query();
 						?>
 					</div>

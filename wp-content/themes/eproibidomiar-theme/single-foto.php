@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				Fotos - <?php echo apply_filters('the_title', $post->post_title); ?>
+				Fotos
 			</div>
 		</div>
 	</div>

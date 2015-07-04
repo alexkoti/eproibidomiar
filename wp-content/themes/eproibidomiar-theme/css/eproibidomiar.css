@@ -225,7 +225,7 @@ body.locked #mobile-menu {
 	background-position:center center;
 	height:409px;
 }
-@media screen and (max-width:1199px) {
+@media screen and (max-width:1200px) {
 	.owl-carousel .item-md {
 		display:block;
 	}
@@ -247,7 +247,7 @@ body.locked #mobile-menu {
 		height:409px;
 	}
 }
-@media screen and (max-width:320px) {
+@media screen and (max-width:479px) {
 	.owl-carousel .item-xs {
 		display:block;
 	}
@@ -255,6 +255,7 @@ body.locked #mobile-menu {
 		display:none;
 	}
 	.owl-carousel .item .item-image {
+		background-size:100% auto;
 		height:245px;
 	}
 }

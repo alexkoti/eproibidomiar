@@ -42,7 +42,7 @@ function home_page_menu_args( $args ){
  * @param string    $after_title      HTML de fechamento
  * 
  */
-add_action( 'widgets_init', 'register_sidebars_init' );
+//add_action( 'widgets_init', 'register_sidebars_init' );
 function register_sidebars_init(){
 	
 	// Registrar um novo sidebar
