@@ -78,11 +78,8 @@
 			<div class="pswp__caption">
 				<div class="pswp__caption__center"></div>
 			</div>
-
 		</div>
-
 	</div>
-
 </div>
 
 <?php wp_footer(); ?>

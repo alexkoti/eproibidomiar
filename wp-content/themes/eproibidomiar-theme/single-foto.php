@@ -39,8 +39,16 @@
 								$link = wp_get_attachment_url($image_download);
 								echo "<a href='{$link}' class='download' target='blank'>Baixar</a>";
 							}
+							
+							$_thumbnail_id = get_post_meta($post->ID, '_thumbnail_id', true);
+							if( !empty($_thumbnail_id) ){
+								$src = wp_get_attachment_image_src($_thumbnail_id, 'large');
+								$alt = get_the_title();
+								$longdesc = add_query_arg('attachment_id', $_thumbnail_id, home_url());
+								echo "<img src='{$src[0]}' alt='{$alt}' class='img-responsive' longdesc='{$longdesc}' />";
+							}
+							echo "<a href='{$longdesc}' class='sr-only'>descrição da imagem {$post->post_title}</a>";
 							?>
-							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'large', array( 'alt' => get_the_title(), 'class' => 'img-responsive' ) ); ?></a>
 						</div>
 						<div class="caption">
 							<?php the_content(); ?>

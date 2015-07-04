@@ -21,9 +21,6 @@ get_header();
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<?php boros_frontend_form_output('miar_form_contato'); ?>
-			</div>
-			<div class="col-md-6">
 				<?php
 				if ( have_posts() ){
 					while ( have_posts() ){
@@ -32,6 +29,9 @@ get_header();
 					}
 				}
 				?>
+			</div>
+			<div class="col-md-6">
+				<?php boros_frontend_form_output('miar_form_contato'); ?>
 			</div>
 		</div>
 	</div>

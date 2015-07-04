@@ -157,7 +157,7 @@ function miar_form_contato(){
 			'error' => 'Ocorreram algun(s) erro(s), por favor verifique.',
 		),
 		'callbacks' => array(
-			'sucess' => array(
+			'success' => array(
 				array(
 					'function' => 'notify_by_email',
 					'args' => array(

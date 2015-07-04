@@ -85,10 +85,6 @@
 							setup_postdata($post);
 							include('photo-item.php');
 							wp_reset_postdata();
-							//$photo_large = get_post_meta($photo, 'large', true);
-							//$photo_thumb = get_post_meta($photo, '_thumbnail_id', true);
-							//$src = wp_get_attachment_image_src($photo_thumb, 'post-thumbnail');
-							//echo "<div class='item' id='slider-photo-{$i}' data-index='{$i}'><div class='inner'><div class='photo'><a href='{$photo_large[0]}'><img src='{$src[0]}' class='img-responsive' alt='' /></a></div><div class='caption'><span class='title'>{$p->post_title}</span></div></div></div>";
 							$i++;
 						}
 					}

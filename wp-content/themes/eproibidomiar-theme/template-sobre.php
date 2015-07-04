@@ -19,7 +19,7 @@ get_header();
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<img src="<?php echo THEME; ?>/images/sobre.png" alt="" id="img-sobre" />
+				<img src="<?php echo THEME; ?>/images/sobre.png" alt=" " id="img-sobre" />
 				<div id="chamada-1">
 					O espetáculo <strong>É Proibido Miar</strong> – baseado no livro infantil homônimo de <strong>Pedro Bandeira</strong> – 
 					conta a história de <strong>um cãozinho que não via nenhum problema em ser amigo de um gato</strong> e até mesmo em 
@@ -54,22 +54,29 @@ get_header();
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
+				<img src="<?php echo THEME; ?>/images/ico/ico-sobre-balao-grande.png" class="ico-sobre-balao-grande visible-xs visible-sm" alt=" " />
 				<h2>Essa proposta é inédita e pioneira.</h2>
-				<img src="<?php echo THEME; ?>/images/ico/ico-sobre-balao-grande.png" id="ico-sobre-balao-grande" alt="" />
-				<p>Comungamos do conceito de que a deficiência não está nas pessoas, mas no ambiente, na informação e nas atitudes 
-				de acolhimento não preparados para a diversidade. Quando adaptamos essas três variáveis, a deficiência desaparece 
-				e todos temos as mesmas oportunidades de acesso.</p>
-				<p>Nossa <strong>proposta é inédita e pioneira no universo do teatro infantil porto-alegrense</strong>, pois nosso interesse não 
-				está apenas na acessibilidade, mas no potencial criativo e cênico da LIBRAS e da Audiodescrição (AD). 
-				Por isso, decidimos integrar esses recursos na concepção e na dramaturgia do espetáculo. Queremos proporcionar 
-				às pessoas com diferentes habilidades de comunicação a convivência em um mesmo espaço, 
-				tendo as mesmas oportunidades de interação com a obra.</p>
+				<div class="row">
+					<div class="col-md-8">
+						<p>Comungamos do conceito de que a deficiência não está nas pessoas, mas no ambiente, na informação e nas atitudes 
+						de acolhimento não preparados para a diversidade. Quando adaptamos essas três variáveis, a deficiência desaparece 
+						e todos temos as mesmas oportunidades de acesso.</p>
+						<p>Nossa <strong>proposta é inédita e pioneira no universo do teatro infantil porto-alegrense</strong>, pois nosso interesse não 
+						está apenas na acessibilidade, mas no potencial criativo e cênico da LIBRAS e da Audiodescrição (AD). 
+						Por isso, decidimos integrar esses recursos na concepção e na dramaturgia do espetáculo. Queremos proporcionar 
+						às pessoas com diferentes habilidades de comunicação a convivência em um mesmo espaço, 
+						tendo as mesmas oportunidades de interação com a obra.</p>
+					</div>
+					<div class="col-md-4">
+						<img src="<?php echo THEME; ?>/images/ico/ico-sobre-balao-grande.png" class="ico-sobre-balao-grande hidden-xs hidden-sm" alt=" " />
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-5">
 				<div class="espetaculo-recurso">
-					<h2><img src="<?php echo THEME; ?>/images/ico/ico-headphone.png" alt="" /> Audiodescrição</h2>
+					<h2><img src="<?php echo THEME; ?>/images/ico/ico-headphone.png" alt=" " /> Audiodescrição</h2>
 					<p>Audiodescrição (AD) é uma tradução das informações visuais em informação sonora. É como se alguém contasse 
 					pra você o que está acontecendo no filme enquanto você está na cozinha pegando um copo d’água, sabe? 
 					Para ​as pessoas com deficiência visual isso é importantíssimo, pois nem tudo que é visto em cena é falado. 
@@ -82,7 +89,7 @@ get_header();
 			</div>
 			<div class="col-md-5 col-md-offset-2">
 				<div class="espetaculo-recurso">
-					<h2><img src="<?php echo THEME; ?>/images/ico/ico-libras-mao.png" alt="" /> Libras</h2>
+					<h2><img src="<?php echo THEME; ?>/images/ico/ico-libras-mao.png" alt=" " /> Libras</h2>
 					<p>A Língua Brasileira de Sinais, LIBRAS, é utilizada pela comunidade surda não sendo apenas um código para 
 					a comunicação, mas uma língua natural como qualquer outra. A diferença básica é que ela utiliza um repertório 
 					gestual para estabelecer significados. Para determinar cada um, os sinais possuem alguns parâmetros, como a 
