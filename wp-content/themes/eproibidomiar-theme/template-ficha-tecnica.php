@@ -35,7 +35,7 @@ $blocks = array(
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				Ficha Técnica
+				<h1>Ficha Técnica</h1>
 			</div>
 		</div>
 	</div>

@@ -79,7 +79,7 @@ function custom_search_form( $form ) {
  * ==================================================
  * DATAS DAS FOTOS ==================================
  * ==================================================
- * 
+ * Widget com links das listagens das fotos, agrupados por data
  * 
  */
 function miar_foto_datas(){
@@ -128,84 +128,72 @@ function miar_foto_datas(){
 
 /**
  * ==================================================
- * POSTMETA GERAL ===================================
+ * CALENDÁRIO =======================================
  * ==================================================
- * Dados meta gerias do post: autor, data, categorias|termos aplicados, comentários.
- * Esta função certamente será muito customizada para cada site.
- */
-function post_meta_posted_on(){
-	global $post;
-	$author_data = array(
-		get_author_posts_url( get_the_author_meta( 'ID' ) ),
-		get_the_author()
-	);
-	$author = vsprintf('<span class="author vcard"><a class="url fn n" href="%1$s" title="Ver todos os posts de %2$s">%2$s</a>', $author_data );
-	
-	$date_data = array(
-		get_the_date('c'),
-		get_the_date(),
-	);
-	$post_date = vsprintf('<time class="entry-date" datetime="%s" pubdate>%s</time>', $date_data );
-	?>
-	<div class="post_meta">
-		<p class="author_date">Publicado por <?php echo $author; ?> em <span class="post_date"><?php echo $post_date; ?></span></p>
-		<?php
-		// caso queira mostar apenas uma taxonomia, eleminar o foreach e usar apenas o boros_terms('taxonomy_name').
-		$taxonomies = get_taxonomies('', 'objects');
-		foreach( $taxonomies as $taxonomy ){
-			echo boros_terms( $post->ID, $taxonomy->name, true, "<p class='taxonomy_terms terms_{$taxonomy->name}'>{$taxonomy->label}: ", ' &gt; ', ', ', '</p>' );
-		}
-		?>
-		<p class="comment_status"></p>
-	</div>
-	<?php
-}
-
-/**
- * ==================================================
- * CONTENT NAVIGATION (clone de twentyten) ==========
- * ==================================================
+ * Filtros de output dos calendários
  * 
- * @param string $nav_id - id HTML apenas para identificação
  */
-function custom_content_nav( $nav_id ) {
-	global $wp_query;
-
-	if ( $wp_query->max_num_pages > 1 ) : ?>
-		<nav id="<?php echo $nav_id; ?>" class="contents_nav">
-			<div class="nav-previous"><?php next_posts_link( '&larr;  Anteriores' ); ?></div>
-			<div class="nav-next"><?php previous_posts_link( 'Recentes &rarr;' ); ?></div>
-		</nav><!-- #nav-above -->
-	<?php endif;
+add_filter( 'boros_calendar_event_day_output', 'miar_calendar_day_output', 10, 5 );
+function miar_calendar_day_output( $output, $post, $day, $link, $title ){
+	//pre($post->metas);
+	//pre($day);
+	$performance_location = isset($post->metas['performance_location']) ? sprintf('<li class="performance-location">%s</li>', $post->metas['performance_location'][0]) : '';
+	$performance_time = isset($post->metas['performance_location']) ? sprintf('<li class="performance-time">%s</li>', $post->metas['performance_time'][0]) : '';
+	$performance_city = isset($post->metas['performance_city']) ? sprintf('<li class="performance-city-state">%s</li>', $post->metas['performance_city'][0]) : '';
+	
+	return sprintf(
+		'<div class="performance-item"><ul>%s %s %s</ul></div>',
+		$performance_location,
+		$performance_time,
+		$performance_city
+	);
 }
 
-/**
- * ==================================================
- * SHARE BOX ========================================
- * ==================================================
- * Requisitos:
- * - javascript de facebook e twitter linkados via 'head_config'
- * - opção de exibição controlado via painel de admin, opção 'share_active' - necessário para ativar/desativar bloco de share que é bem pesado.
- */
-function share_box(){
-	global $post;
-	if( get_option( 'share_active' ) == true ){
-?>
-	<div class="share">
-		<div>
-			<?php if( !is_single() ){ ?><a class="comment_link" href="<?php comments_link(); ?>"><?php comments_number('Sem comentários', '1 comentário', '% comentários'); ?></a><?php } ?>
-			<a href="http://twitter.com/share" class="twitter-share-button" data-url="<?php the_permalink(); ?>" data-count="horizontal"></a>
-		</div>
-		<div class="facebook_share" id="facebook_share_box_<?php the_ID(); ?>">
-			<script type="text/javascript">
-			//<![CDATA[
-			document.getElementById("facebook_share_box_<?php the_ID(); ?>").innerHTML = '<fb:like href="<?php the_permalink(); ?>" show_faces="true" width="700"></' + 'fb:like>';
-			//]]>
-			</script>
-		</div>
-	</div>
-<?php
+add_filter( 'boros_calendar_prev_next_month_link', 'miar_calendar_prev_next_month_link', 10, 6 );
+function miar_calendar_prev_next_month_link( $html, $direction, $date_obj, $link, $class, $title ){
+	$icon = $direction == 'prev' ? '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>' : '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
+	return sprintf('<a href="%s" class="%s btn btn-default">%s</a>', $link, $class, $icon);
+}
+
+add_filter( 'boros_calendar_month_dropdown', 'miar_calendar_month_dropdown', 10, 3 );
+function miar_calendar_month_dropdown( $dropdown, $class, $dropdown_opts ){
+	if( empty($dropdown) ){
+		return $dropdown;
 	}
+	
+	$opts = '';
+	foreach( $dropdown_opts as $option ){
+		$opts .= "<option value='{$option['link']}'{$option['selected']}>{$option['month_name']} {$option['year']}</option>";
+	}
+	return sprintf( '<select class="%s">%s</select>', $class, $opts );
+}
+
+add_filter( 'boros_calendar_head', 'miar_calendar_head', 10, 4 );
+function miar_calendar_head( $html, $prev, $next, $dropdown ){
+	if( empty($dropdown) ){
+		return $html;
+	}
+	
+	return sprintf('
+		<div class="calendar-nav row">
+			<div class="col-md-9 col-sm-12">
+				<h2>Saiba onde estaremos e venha nos assistir!</h2>
+				<p>Programe-se! Nossas apresentações duram em torno de 1 hora e reservamos cerca de 30 minutos após o espetáculos para que o público tire fotos com os atores.</p>
+			</div>
+			<div class="col-md-3 col-sm-12">
+				<form action="" class="form-inline clearfix">
+					<div class="form-group">
+						%s
+						%s
+						<label>%s</label>
+					</div>
+				</form>
+			</div>
+		</div>',
+		$prev, 
+		$next,
+		$dropdown
+	);
 }
 
 

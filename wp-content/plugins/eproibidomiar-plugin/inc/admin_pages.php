@@ -76,6 +76,17 @@ function my_admin_pages_config(){
 				),
 			),
 		),
+		'edit.php?post_type=agenda' => array(
+			'type' => 'core',
+			'subpages' => array(
+				'section_agenda' => array(
+					'page_title'	=> 'Opções da Agenda', 
+					'menu_title'	=> 'Opções da Agenda', 
+					'menu_slug'		=> 'section_agenda', 
+					'capability'	=> 'manage_options',
+				),
+			),
+		),
 	);
 	return $admin_pages;
 }

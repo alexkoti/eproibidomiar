@@ -96,6 +96,157 @@ function my_meta_boxes(){
 		);
 	}
 	
+	
+	/**
+	 * datepicker multiple
+	 * 
+	 */
+	$meta_boxes[] = array(
+		'id' => 'datepicker_multiple_box', 
+		'title' => 'Informações', 
+		'post_type' => array('agenda'), 
+		'context' => 'normal', 
+		'priority' => 'default',
+		'itens' => array(
+			//array(
+			//	'name' => 'post_content',
+			//	'type' => 'wp_editor',
+			//	'label' => 'Content (core)',
+			//	'options' => array(
+			//		'media_buttons' => true,
+			//	),
+			//),
+			//array(
+			//	'name' => 'color',
+			//	'type' => 'color_picker',
+			//	'label' => 'Cor simples',
+			//),
+			//array(
+			//	'name' => 'teste_simples',
+			//	'type' => 'text',
+			//	'label' => 'Texto simples',
+			//),
+			//array(
+			//	'name' => 'teste_simples_split',
+			//	'type' => 'text',
+			//	'label' => 'Texto split',
+			//	'options' => array(
+			//		'split' => array(
+			//			'um' => array(),
+			//			'dois' => array(),
+			//		),
+			//	),
+			//),
+			//array(
+			//	'name' => 'test3',
+			//	'type' => 'select',
+			//	'label' => 'Select simples',
+			//	'options' => array(
+			//		'values' => array(
+			//			'lorema' => 'ipsuma',
+			//			'loremb' => 'ipsumb',
+			//			'loremc' => 'ipsumc',
+			//		),
+			//	),
+			//),
+			array(
+				'name' => 'performance_dates',
+				'type' => 'date_picker_multiple',
+				'layout' => 'block',
+				'label' => 'Datas das apresentações',
+				'options' => array(
+					'num_months' => 4,
+				),
+				'callbacks' => array('miar_set_performance_dates'),
+			),
+			/**
+			 * 
+			 - callback ao salvar
+			 - ordenar datas
+			 - pegar a primeira e última e salvar como start e end
+			 - E/OU salvar múltiplos post_meta de apresentações
+			 * 
+			 */
+			array(
+				'name' => 'performance_location',
+				'type' => 'text',
+				'label' => 'Nome do local',
+				'size' => 'large',
+			),
+			array(
+				'name' => 'performance_address',
+				'type' => 'text',
+				'label' => 'Endereço',
+				'input_helper' => 'Adicione também a cidade e estado',
+				'size' => 'full',
+			),
+			array(
+				'name' => 'performance_city',
+				'type' => 'text',
+				'label' => 'Cidade, Estado',
+				'size' => 'large',
+			),
+			array(
+				'name' => 'performance_map',
+				'type' => 'text',
+				'label' => 'Endereço do google maps',
+				'size' => 'full',
+			),
+			array(
+				'name' => 'performance_time',
+				'type' => 'text',
+				'label' => 'Horário',
+			),
+			array(
+				'name' => 'performance_cost',
+				'type' => 'textarea',
+				'label' => 'Preço',
+				'attr' => array('class' => 'ipth_small'),
+			),
+			//array(
+			//	'name' => 'show_dates',
+			//	'type' => 'date_picker',
+			//	'layout' => 'block',
+			//	'duplicable' => true,
+			//	'options' => array(
+			//		'picker_type' => 'datetime',
+			//		'split_time' => true,
+			//	),
+			//),
+			//array(
+			//	'name' => 'text_multiple',
+			//	'type' => 'text',
+			//	'label' => 'Texto duplicável simples',
+			//	'duplicable' => true,
+			//),
+			//array(
+			//	'name' => 'text_split',
+			//	'type' => 'text',
+			//	'label' => 'Texto duplicável split',
+			//	'duplicable' => true,
+			//	'options' => array(
+			//		'split' => array(
+			//			'um' => array(),
+			//			'dois' => array(),
+			//		),
+			//	),
+			//),
+			//array(
+			//	'name' => 'aaaaa',
+			//	'type' => 'select',
+			//	'label' => 'Select duplicável simples',
+			//	'duplicable' => true,
+			//	'options' => array(
+			//		'values' => array(
+			//			'lorema' => 'LOREM-A',
+			//			'loremb' => 'LOREM-B',
+			//			'loremc' => 'LOREM-C',
+			//		),
+			//	),
+			//),
+		)
+	);
+	
 	$my_meta_boxes = new BorosMetaBoxes( $meta_boxes );
 }
 

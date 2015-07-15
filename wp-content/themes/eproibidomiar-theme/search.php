@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<?php echo apply_filters( 'the_title', $post->post_title ); ?>
+				<h1>Resultados de busca para &ldquo;<?php echo get_search_query(); ?>&rdquo;</h1>
 			</div>
 		</div>
 	</div>
@@ -13,7 +13,7 @@
 <div class="blog-box">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-8">
 				<?php
 				if ( have_posts() ){
 					while ( have_posts() ){
@@ -21,7 +21,12 @@
 						get_template_part( 'content', 'page' );
 					}
 				}
+				
+				miar_pagination();
 				?>
+			</div>
+			<div class="col-md-4">
+				<?php get_sidebar('blog'); ?>
 			</div>
 		</div>
 	</div>

@@ -4,15 +4,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				Novidades 
-				<?php
-				single_tag_title( ' - ' );
-				
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-				if( $paged > 1 ){
-					echo " - Página {$paged}";
-				}
-				?>
+				<h1>
+					Novidades 
+					<?php
+					single_tag_title( ' - ' );
+					
+					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+					if( $paged > 1 ){
+						echo " - Página {$paged}";
+					}
+					?>
+				</h1>
 			</div>
 		</div>
 	</div>

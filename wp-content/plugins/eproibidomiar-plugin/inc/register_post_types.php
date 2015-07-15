@@ -81,6 +81,65 @@ function register_post_types(){
 	new BorosPostTypeColumns( $columns_config );
 	
 	/**
+	 * Agenda
+	 * 
+	 */
+	$labels = array(
+		'name' => 'Agenda',
+		'singular_name' => 'Agenda',
+		'menu_name' => 'Agenda',
+		'add_new' => 'Nova Agenda',
+		'add_new_item' => 'Adicionar Agenda',
+		'edit_item' => 'Editar Agenda',
+		'new_item' => 'Nova Agenda',
+		'view_item' => 'Ver Agenda',
+		'search_items' => 'Buscar Agenda',
+		'not_found' =>  'Nenhum encontrada',
+		'not_found_in_trash' => 'Nenhum encontrada na lixeira',
+		'parent_item_colon' => ''
+	);
+	$args = array(
+		'labels' => $labels,
+		'description' => 'Agenda',
+		'public' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => false,
+			'show_ui' => true,
+			'show_in_nav_menus' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		//'has_archive' => 'fotos',
+		'menu_icon' => 'dashicons-calendar-alt',
+		//'show_in_menu' => 'edit.php?post_type=artigo',
+		'supports' => array(
+			'title',
+			'editor',
+			//'custom-fields',
+		)
+	); 
+	register_post_type( 'agenda' , $args );
+	$columns_config = array(
+		'post_type' => 'agenda',
+		'columns' => array(
+			'cb' => '<input type="checkbox" />',
+			'title' => 'Título',
+			'date' => 'Data',
+		)
+	);
+	new BorosPostTypeColumns( $columns_config );
+	// enqueues
+	add_action( 'admin_print_scripts-post-new.php', 'agenda_admin_script', 11 );
+	add_action( 'admin_print_scripts-post.php', 'agenda_admin_script', 11 );
+	function agenda_admin_script() {
+		global $post_type;
+		if( 'agenda' == $post_type ){
+			wp_enqueue_script('jquery-ui-core');
+		}
+	}
+	
+	/**
 	 * Contatos
 	 * 
 	 */

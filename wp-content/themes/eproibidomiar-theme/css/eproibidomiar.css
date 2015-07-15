@@ -419,7 +419,15 @@ body.locked #mobile-menu {
 	color:#fff;
 	font-family: 'Coustard', serif;
 	font-size:22px;
+	line-height:normal;
 	padding:15px 0 20px;
+}
+.page-head h1 {
+	font-family: 'Coustard', serif;
+	font-size:22px;
+	line-height:normal;
+	margin:0;
+	padding:0;
 }
 
 
@@ -1032,6 +1040,147 @@ body.attachment.single figure h1 {
 
 /**
  * ==================================================
+ * AGENDA ===========================================
+ * ==================================================
+ * 
+ * 
+ */
+.agenda-head {
+	background-color:#fdc222;
+}
+.agenda-head .text {
+	background:url('../images/cachorro-agenda.png') no-repeat left 16px;
+	padding:55px 50px 45px 340px;
+}
+.agenda-head .text {
+	color:#fff;
+	font-size:20px;
+	font-weight:bold;
+}
+.agenda-head .text p {
+	line-height:normal;
+	margin:0;
+}
+.agenda-head .text p strong {
+	color:#c95151;
+}
+.agenda-head .text h2 {
+	color:#c95151;
+	font-size:30px;
+	font-weight:bold;
+	margin:0 0 10px;
+}
+.agenda-box {
+	background:url('../images/bg-pattern-2.png') repeat bottom left;
+}
+.calendar-nav {
+	font-size:16px;
+	padding-top:40px;
+}
+.calendar-nav h2 {
+	font-weight:bold;
+	margin:0;
+}
+.calendar-nav .form-inline {
+	float:right;
+	margin:20px 0;
+	text-align:right;
+}
+	.calendar-nav .form-inline label {
+		float:left;
+		margin-right:5px;
+	}
+	.calendar-nav .form-inline select {
+		background-color:#c95151;
+		border-color:#c95151;
+		color:#fff;
+		font-size:18px;
+		font-weight:bold;
+		padding-top:3px;
+		width:160px;
+	}
+	.calendar-nav .form-inline .prev-next-month {
+		background-color:#c95151;
+		border-color:#c95151;
+		color:#fff;
+	}
+table.calendar {
+	background-color:#fff4d4;
+	border:2px solid #fff;
+}
+table.calendar th {
+	background-color:#c95151;
+	border:2px solid #fff;
+	color:#fff;
+	font-size:18px;
+	text-align:center;
+	width:14.28571428571429%;
+}
+table.calendar td {
+	border:2px solid #fff;
+	padding:0;
+}
+table.calendar td.cell-header {
+	border-bottom:1px solid #fff4d4;
+	text-align:center;
+}
+	table.calendar td.cell-header .day-number {
+		background-color:#fceab7;
+		border-bottom-right-radius:6px;
+		border-bottom-left-radius:6px;
+		display:inline-block;
+		font-size:14px;
+		font-weight:bold;
+		padding:4px 10px;
+	}
+	table.calendar td.cell-header.blank-day .day-number {
+		display:none;
+	}
+	table.calendar td.cell-header.has-events .day-number {
+		background-color:#fdc222;
+	}
+table.calendar td.cell-events {
+	border-top:none;
+	color:#c95151;
+	font-size:11px;
+	padding:10px 6px;
+}
+	table.calendar td.cell-events .performance-item {
+		border-bottom:1px solid #fdc222;
+		font-size:12px;
+		font-weight:bold;
+		margin-bottom:5px;
+		padding-bottom:5px;
+	}
+	table.calendar td.cell-events .performance-item:last-child {
+		border-bottom:0;
+		margin-bottom:0;
+		padding-bottom:0;
+	}
+	table.calendar td.cell-events .performance-item ul {
+		list-style:none;
+		margin:0;
+		padding:0;
+	}
+	table.calendar td.cell-events .performance-item ul li {
+		background-position:left center;
+		background-repeat:no-repeat;
+		padding:2px 0 2px 18px;
+	}
+	table.calendar td.cell-events .performance-item ul li.performance-location {
+		background-image:url('../images/ico/ico-local.png');
+	}
+	table.calendar td.cell-events .performance-item ul li.performance-time {
+		background-image:url('../images/ico/ico-time.png');
+	}
+	table.calendar td.cell-events .performance-item ul li.performance-city-state {
+		background-image:url('../images/ico/ico-map.png');
+	}
+
+
+
+/**
+ * ==================================================
  * FOOTER ===========================================
  * ==================================================
  * 
@@ -1115,6 +1264,20 @@ body.attachment.single figure h1 {
 	#sobre-chamadas-secundarias {
 		margin-top:-10px;
 	}
+	.calendar-nav .form-inline {
+		display:block;
+		float:none;
+	}
+	.calendar-nav .form-inline .form-group {
+		display:block;
+	}
+	.calendar-nav .form-inline label {
+		width:100%;
+	}
+	.calendar-nav .form-inline select {
+		margin-top:5px;
+		width:100%;
+	}
 }
 
 
@@ -1142,6 +1305,19 @@ body.attachment.single figure h1 {
 	}
 	#sobre-chamadas-secundarias {
 		margin-top:0;
+	}
+	.calendar-nav .form-inline label, 
+	.calendar-nav .form-inline select {
+		display:block;
+		float:none;
+		margin:0 auto;
+		width:auto;
+	}
+	.calendar-nav .form-inline .btn.prev {
+		float:left;
+	}
+	.calendar-nav .form-inline .btn.next {
+		float:right;
 	}
 }
 
@@ -1191,6 +1367,15 @@ body.attachment.single figure h1 {
 		top:0;
 		left:0;
 		margin:0 auto;
+	}
+	
+	.agenda-head .text {
+		background-image:none;
+		padding:20px 0 0;
+	}
+	
+	#calendar-table-box {
+		display:none;
 	}
 }
 

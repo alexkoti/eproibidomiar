@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				Fotos
+				<h1>Fotos</h1>
 			</div>
 		</div>
 	</div>
