@@ -178,5 +178,46 @@ jQuery(document).ready(function($){
 	});
 	
 	
+	/**
+	 * Agenda: dropdown calendário
+	 * 
+	 */
+	$('.table-events-dropdown').on('change', function(){
+		window.top.location = $(this).val();
+	});
+	
+	/**
+	 * Agenda: mostrar popup ao clicar no evento
+	 * 
+	 */
+	$('.event-btn-ovelay').on('click', function(){
+		console.log(2);
+		$('.event-popup').hide();
+		$(this).closest('.performance-item').find('.event-pop-up').fadeIn();
+	});
+	
+	/**
+	 * Agenda: botão de fechar popup
+	 * 
+	 */
+	$('.event-pop-up .glyphicon-remove').on('click', function(){
+		$(this).closest('.performance-item').find('.event-pop-up').hide();
+	});
+	
+	/**
+	 * Agenda:click outside popup
+	 * @link http://stackoverflow.com/a/7385673
+	 * 
+	 */
+	$(document).mouseup(function (e){
+		var container = $('.event-pop-up');
+
+		if (!container.is(e.target) // if the target of the click isn't the container...
+			&& container.has(e.target).length === 0) // ... nor a descendant of the container
+		{
+			container.hide();
+		}
+	});
+	
 	
 });

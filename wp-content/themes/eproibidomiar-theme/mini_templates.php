@@ -137,15 +137,40 @@ add_filter( 'boros_calendar_event_day_output', 'miar_calendar_day_output', 10, 5
 function miar_calendar_day_output( $output, $post, $day, $link, $title ){
 	//pre($post->metas);
 	//pre($day);
-	$performance_location = isset($post->metas['performance_location']) ? sprintf('<li class="performance-location">%s</li>', $post->metas['performance_location'][0]) : '';
-	$performance_time = isset($post->metas['performance_location']) ? sprintf('<li class="performance-time">%s</li>', $post->metas['performance_time'][0]) : '';
-	$performance_city = isset($post->metas['performance_city']) ? sprintf('<li class="performance-city-state">%s</li>', $post->metas['performance_city'][0]) : '';
+	$performance_location = isset($post->metas['performance_location']) ? sprintf('<li class="performance-ico performance-location">%s</li>', $post->metas['performance_location'][0]) : '';
+	$performance_time = isset($post->metas['performance_location']) ? sprintf('<li class="performance-ico performance-time">%s</li>', $post->metas['performance_time'][0]) : '';
+	$performance_city = isset($post->metas['performance_city']) ? sprintf('<li class="performance-ico performance-city-state">%s</li>', $post->metas['performance_city'][0]) : '';
+	$performance_map = isset($post->metas['performance_map']) ? sprintf('<a href="%s" class="performance-ico performance-map-link" target="_blank">Ver no mapa</a>', $post->metas['performance_map'][0]) : '';
+	$performance_address = isset($post->metas['performance_address']) ? sprintf('<li class="performance-ico performance-address">%s %s</li>', $post->metas['performance_address'][0], $performance_map) : '';
+	$performance_cost = isset($post->metas['performance_cost']) ? sprintf('<li class="performance-ico performance-cost">%s</li>', apply_filters('the_content', $post->metas['performance_cost'][0])) : '';
 	
 	return sprintf(
-		'<div class="performance-item"><ul>%s %s %s</ul></div>',
+		'<div class="performance-item">
+			<div class="event-btn-ovelay"></div>
+			<ul>
+				%s 
+				%s 
+				%s
+			</ul>
+			<div class="event-pop-up">
+				<span class="glyphicon glyphicon-remove"></span>
+				<h3>%s</h3>
+				<ul>
+					%s 
+					%s 
+					%s 
+					%s 
+				</ul>
+			</div>
+		</div>',
 		$performance_location,
 		$performance_time,
-		$performance_city
+		$performance_city,
+		$post->post_title,
+		$performance_location,
+		$performance_time,
+		$performance_address,
+		$performance_cost
 	);
 }
 
@@ -175,11 +200,36 @@ function miar_calendar_head( $html, $prev, $next, $dropdown ){
 	}
 	
 	return sprintf('
-		<div class="calendar-nav row">
+		<div class="calendar-nav calendar-nav-head row">
 			<div class="col-md-9 col-sm-12">
 				<h2>Saiba onde estaremos e venha nos assistir!</h2>
 				<p>Programe-se! Nossas apresentações duram em torno de 1 hora e reservamos cerca de 30 minutos após o espetáculos para que o público tire fotos com os atores.</p>
 			</div>
+			<div class="col-md-3 col-sm-12">
+				<form action="" class="form-inline clearfix">
+					<div class="form-group">
+						%s
+						%s
+						<label>%s</label>
+					</div>
+				</form>
+			</div>
+		</div>',
+		$prev, 
+		$next,
+		$dropdown
+	);
+}
+
+add_filter( 'boros_calendar_footer', 'miar_calendar_footer', 10, 4 );
+function miar_calendar_footer( $html, $prev, $next, $dropdown ){
+	if( empty($dropdown) ){
+		return $html;
+	}
+	
+	return sprintf('
+		<div class="calendar-nav calendar-nav-footer row">
+			<div class="col-md-9 col-sm-12"></div>
 			<div class="col-md-3 col-sm-12">
 				<form action="" class="form-inline clearfix">
 					<div class="form-group">

@@ -1075,6 +1075,8 @@ body.attachment.single figure h1 {
 }
 .calendar-nav {
 	font-size:16px;
+}
+.calendar-nav-head {
 	padding-top:40px;
 }
 .calendar-nav h2 {
@@ -1149,32 +1151,129 @@ table.calendar td.cell-events {
 		border-bottom:1px solid #fdc222;
 		font-size:12px;
 		font-weight:bold;
-		margin-bottom:5px;
-		padding-bottom:5px;
+		padding:5px 0;
+		position:relative;
 	}
 	table.calendar td.cell-events .performance-item:last-child {
 		border-bottom:0;
-		margin-bottom:0;
-		padding-bottom:0;
+	}
+	table.calendar td.cell-events .performance-item:hover {
+		background-color:#fceab7;
+	}
+	table.calendar td.cell-events .event-btn-ovelay {
+		cursor:pointer;
+		position:absolute;
+		top:0;
+		left:0;
+		height:100%;
+		width:100%;
 	}
 	table.calendar td.cell-events .performance-item ul {
 		list-style:none;
 		margin:0;
 		padding:0;
 	}
-	table.calendar td.cell-events .performance-item ul li {
-		background-position:left center;
+	table.calendar td.cell-events .performance-item .performance-ico {
+		background-position:left 4px;
 		background-repeat:no-repeat;
 		padding:2px 0 2px 18px;
 	}
-	table.calendar td.cell-events .performance-item ul li.performance-location {
+	table.calendar td.cell-events .performance-item .performance-location {
 		background-image:url('../images/ico/ico-local.png');
 	}
-	table.calendar td.cell-events .performance-item ul li.performance-time {
+	table.calendar td.cell-events .performance-item .performance-time {
 		background-image:url('../images/ico/ico-time.png');
 	}
-	table.calendar td.cell-events .performance-item ul li.performance-city-state {
+	table.calendar td.cell-events .performance-item .performance-city-state,
+	table.calendar td.cell-events .performance-item .performance-address {
 		background-image:url('../images/ico/ico-map.png');
+	}
+	table.calendar td.cell-events .performance-item .performance-map-link {
+		background-image:url('../images/ico/ico-map-link.png');
+	}
+	table.calendar td.cell-events .performance-item .performance-cost {
+		background-image:url('../images/ico/ico-coin.png');
+	}
+
+.event-pop-up {
+	background:#c95151;
+	border-radius:5px;
+	color:#fff;
+	padding:15px;
+	position:absolute;
+	top:0;
+	width:320px;
+	display:none;
+	z-index:2;
+	-webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.5);
+	   -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.5);
+	        box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.5);
+}
+
+/* posição conforme o dia da semana */
+.wday-1 .event-pop-up,
+.wday-2 .event-pop-up,
+.wday-3 .event-pop-up,
+.wday-4 .event-pop-up {
+	left:calc(100% + 10px);
+}
+.wday-6 .event-pop-up,
+.wday-7 .event-pop-up,
+.wday-5 .event-pop-up {
+	right:calc(100% + 10px);
+}
+
+/* triângulo */
+.wday-1 .event-pop-up:before,
+.wday-2 .event-pop-up:before,
+.wday-3 .event-pop-up:before,
+.wday-4 .event-pop-up:before {
+	content:'';
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px 8px 10px 0;
+	border-color: transparent #c95151 transparent transparent;
+	position:absolute;
+	top:15px;
+	left:-8px;
+}
+.wday-6 .event-pop-up:before,
+.wday-7 .event-pop-up:before,
+.wday-5 .event-pop-up:before {
+	content:'';
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px 0 10px 8px;
+	border-color: transparent transparent transparent #c95151;
+	position:absolute;
+	top:15px;
+	right:-8px;
+}
+	.event-pop-up .glyphicon-remove {
+		color:#fff4d4;
+		cursor:pointer;
+		font-size:14px;
+		position:absolute;
+		top:8px;
+		right:8px;
+	}
+	.event-pop-up h3 {
+		font-weight:bold;
+		font-size:16px;
+		margin:0 0 15px;
+		padding:0;
+	}
+	.event-pop-up ul {
+		font-weight:normal;
+	}
+	.event-pop-up ul li a {
+		color:#fdc222;
+		text-decoration:underline;
+	}
+	.event-pop-up ul li p:last-child {
+		margin:0;
 	}
 
 
