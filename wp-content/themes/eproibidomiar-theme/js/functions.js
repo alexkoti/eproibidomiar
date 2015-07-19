@@ -48,13 +48,25 @@ jQuery(document).ready(function($){
 	});
 	
 	/**
+	 * Slider fotos assessoria
+	 * 
+	 */
+	var owlAssessoriaPhotos = $(".owl-assessoria-photos");
+	owlAssessoriaPhotos.owlCarousel();
+	var owlAssessoriaPhotos2 = $(".owl-assessoria-photos2");
+	owlAssessoriaPhotos2.owlCarousel({
+		items : 3,
+		itemsDesktop : [1280, 3]
+	});
+	
+	/**
 	 * Slider fotos home
 	 * 
 	 */
 	var owlHomePhotos = $("#owl-home-photos");
 	owlHomePhotos.owlCarousel({
 		navigation : false,
-		pagination : false,
+		//pagination : false,
 		items : 3,
 		itemsDesktop : [1280, 3]
 	});

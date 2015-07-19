@@ -145,20 +145,6 @@ if( !empty($testimonials_opt) ){
 				<div class="row">
 					<div class="col-md-6">
 						<blockquote>
-							<p>Financiamento</p>
-							<?php
-							$home_financing = get_option('home_financing');
-							if( !empty($home_financing) ){
-								foreach( $home_financing as $financing ){
-									$img = wp_get_attachment_image_src($financing['image'], 'full');
-									echo "<a href='{$financing['link']}' target='_blank'><img src='{$img[0]}' title='{$financing['name']}' alt='{$financing['name']}' /></a>";
-								}
-							}
-							?>
-						</blockquote>
-					</div>
-					<div class="col-md-6">
-						<blockquote>
 							<p>Apoiadores e parceiros</p>
 							<?php
 							$home_partners = get_option('home_supporters_partners');
@@ -166,6 +152,20 @@ if( !empty($testimonials_opt) ){
 								foreach( $home_partners as $partner ){
 									$img = wp_get_attachment_image_src($partner['image'], 'full');
 									echo "<a href='{$partner['link']}' target='_blank'><img src='{$img[0]}' title='{$partner['name']}' alt='{$partner['name']}' /></a>";
+								}
+							}
+							?>
+						</blockquote>
+					</div>
+					<div class="col-md-6">
+						<blockquote>
+							<p>Financiamento</p>
+							<?php
+							$home_financing = get_option('home_financing');
+							if( !empty($home_financing) ){
+								foreach( $home_financing as $financing ){
+									$img = wp_get_attachment_image_src($financing['image'], 'full');
+									echo "<a href='{$financing['link']}' target='_blank'><img src='{$img[0]}' title='{$financing['name']}' alt='{$financing['name']}' /></a>";
 								}
 							}
 							?>

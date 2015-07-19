@@ -6,6 +6,7 @@
 			$thumb_size = 'post-thumbnail';
 			if( !is_front_page() ){
 				$thumb_size = 'medium';
+				if( is_page('assessoria-de-imprensa') ){$thumb_size = 'post-thumbnail';}
 				$image_download = get_post_meta($post->ID, 'image_download', true);
 				if( !empty($image_download) ){
 					$link = wp_get_attachment_url($image_download);

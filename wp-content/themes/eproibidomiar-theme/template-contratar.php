@@ -30,19 +30,6 @@ get_header();
 					<div class="entry-content">
 						<?php the_content(); ?>
 					</div>
-					
-					<?php
-					$technical_needs = get_post_meta($post->ID, 'technical_needs', true);
-					if( !empty($technical_needs) ){
-						$file = wp_get_attachment_url($technical_needs);
-						$filename = basename($file);
-					?>
-					<div class="necessidades-tecnicas">
-						<h3>Necessidades técnicas</h3>
-						<p>Baixe esse arquivo para saber quais são as características necessárias para viabilizar nossas apresentações.</p>
-						<a href="<?php echo $file; ?>" target="_blank"><?php echo $filename; ?></a>
-					</div>
-					<?php } ?>
 				</article>
 				<?php
 					}

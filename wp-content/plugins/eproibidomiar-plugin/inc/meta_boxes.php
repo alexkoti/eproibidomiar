@@ -76,25 +76,96 @@ function my_meta_boxes(){
 		)
 	);
 	
-	$contratar = get_page_ID_by_name('contratar-apresentacoes');
-	if( (isset($_GET['post']) and $_GET['post'] == $contratar) or (isset($_POST['post_ID']) and $_POST['post_ID'] == $contratar) ){
+	$assessoria = get_page_ID_by_name('assessoria-de-imprensa');
+	if( (isset($_GET['post']) and $_GET['post'] == $assessoria) or (isset($_POST['post_ID']) and $_POST['post_ID'] == $assessoria) ){
 		$meta_boxes[] = array(
-			'id' => 'contratar_box', 
-			'title' => 'Arquivo de Necessidades técnicas', 
+			'id' => 'assessoria_files_box', 
+			'title' => 'Arquivo para download', 
 			//'desc' => '',
 			'post_type' => array('page'), 
 			'context' => 'normal', 
 			'priority' => 'default',
 			'itens' => array(
 				array(
-					'name' => 'technical_needs',
+					'name' => 'file',
 					'type' => 'attach_select',
 					'size' => 'medium',
 					'label' => 'Arquivo',
 				),
+				array(
+					'name' => 'file_title',
+					'type' => 'text',
+					'size' => 'large',
+					'label' => 'Título',
+				),
+				array(
+					'name' => 'file_desc',
+					'type' => 'textarea',
+					'size' => 'large',
+					'label' => 'Descrição',
+				),
+			)
+		);
+		$meta_boxes[] = array(
+			'id' => 'assessoria_photos_box', 
+			'title' => 'Fotos', 
+			//'desc' => '',
+			'post_type' => array('page'), 
+			'context' => 'normal', 
+			'priority' => 'default',
+			'itens' => array(
+				array(
+					'name' => 'assessoria_photos',
+					'type' => 'search_content_list',
+					'label' => 'Fotos',
+					'options' => array(
+						'query_search' => array(
+							'post_type' => 'foto',
+							'posts_per_page' => -1,
+						),
+						'query_selecteds' => array(
+							'post_type' => 'foto',
+						),
+					),
+				),
 			)
 		);
 	}
+	
+	//if( isset($_GET['post']) or isset($_POST['post_ID']) ){
+	//	$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'];
+	//	$template_file = get_post_meta($post_id, '_wp_page_template', true);
+	//	if ($template_file == 'template-contratar.php') {
+	//		$meta_boxes[] = array(
+	//			'id' => 'assessoria_box', 
+	//			'title' => 'Arquivo para download', 
+	//			//'desc' => '',
+	//			'post_type' => array('page'), 
+	//			'context' => 'normal', 
+	//			'priority' => 'default',
+	//			'itens' => array(
+	//				array(
+	//					'name' => 'file',
+	//					'type' => 'attach_select',
+	//					'size' => 'medium',
+	//					'label' => 'Arquivo',
+	//				),
+	//				array(
+	//					'name' => 'file_title',
+	//					'type' => 'text',
+	//					'size' => 'large',
+	//					'label' => 'Título',
+	//				),
+	//				array(
+	//					'name' => 'file_desc',
+	//					'type' => 'textarea',
+	//					'size' => 'large',
+	//					'label' => 'Descrição',
+	//				),
+	//			)
+	//		);
+	//	}
+	//}
 	
 	
 	/**

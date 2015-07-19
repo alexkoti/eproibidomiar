@@ -362,6 +362,9 @@ body.locked #mobile-menu {
 	margin-top:8px;
 	min-height:36px;
 }
+#home-photos #owl-home-photos.owl-carousel .owl-pagination {
+	display:none;
+}
 
 
 
@@ -965,6 +968,18 @@ ul.pagination > li.active:hover span {
 	margin:20px 0 0;
 }
 
+
+
+/**
+ * ==================================================
+ * ASSESSORIA DE IMPRENSA ===========================
+ * ==================================================
+ * 
+ * 
+ */
+body.item-name-assessoria-de-imprensa .owl-carousel .inner > .caption {
+	display:none;
+}
 
 
 
