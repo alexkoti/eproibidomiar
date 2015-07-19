@@ -51,11 +51,14 @@ if( !empty($agenda_head_text) ){
 						);
 						$calendar = boros_calendar($config);
 						//pre($calendar);
-						
 						//$calendar->get_posts_table_by_post_meta();
 						//$calendar->get_posts_table_by_date();
-						$calendar->get_posts_table();
-						$calendar->show_posts_table();
+						$calendar->get_posts();
+						$calendar->show_calendar_head();
+						echo '<div id="calendar-table-box">';
+							$calendar->show_calendar_table();
+						echo '</div>';
+						$calendar->show_calendar_footer();
 					}
 				}
 				?>

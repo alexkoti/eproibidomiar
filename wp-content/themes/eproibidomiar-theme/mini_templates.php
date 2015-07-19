@@ -133,6 +133,13 @@ function miar_foto_datas(){
  * Filtros de output dos calendários
  * 
  */
+
+add_action('boros_calendar_no_posts', 'miar_calendar_no_posts');
+function miar_calendar_no_posts( $vars ){
+	//pre($vars);
+	printf('<div class="agenda-no-posts visible-xs">Não existem apresentações marcadas para %s</div>', ucfirst($vars['month_name']));
+}
+
 add_filter( 'boros_calendar_event_day_output', 'miar_calendar_day_output', 10, 5 );
 function miar_calendar_day_output( $output, $post, $day, $link, $title ){
 	//pre($post->metas);

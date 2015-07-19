@@ -129,6 +129,7 @@ body.locked {
 	overflow:hidden;
 }
 body.locked #mobile-menu {
+	margin-bottom:15px;
 	overflow:auto;
 }
 #mobile-menu {
@@ -1145,6 +1146,7 @@ table.calendar td.cell-events {
 	border-top:none;
 	color:#c95151;
 	font-size:11px;
+	height:100px;
 	padding:10px 6px;
 }
 	table.calendar td.cell-events .performance-item {
@@ -1156,6 +1158,7 @@ table.calendar td.cell-events {
 	}
 	table.calendar td.cell-events .performance-item:last-child {
 		border-bottom:0;
+		padding-bottom:0;
 	}
 	table.calendar td.cell-events .performance-item:hover {
 		background-color:#fceab7;
@@ -1485,6 +1488,9 @@ table.calendar td.cell-events {
 	table.calendar .has-events {
 		display:block;
 	}
+	table.calendar td.cell-events {
+		height:auto;
+	}
 	table.calendar {
 		border:0;
 		border-bottom:1px solid #fdc222;
@@ -1533,6 +1539,16 @@ table.calendar td.cell-events {
 		.performance-info-xs li p:last-child {
 			margin:0;
 		}
+	.agenda-no-posts {
+		background-color: #fff4d4;
+		border: 2px solid #fff;
+		padding:10px;
+		text-align:center;
+	}
+	/* não mostrar tabela caso não existam posts */
+	table.empty-calendar {
+		display:none;
+	}
 	
 }
 
