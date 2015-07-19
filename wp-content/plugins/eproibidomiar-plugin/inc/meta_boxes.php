@@ -76,10 +76,11 @@ function my_meta_boxes(){
 		)
 	);
 	
+	$contratar = get_page_ID_by_name('contratar-apresentacoes');
 	$assessoria = get_page_ID_by_name('assessoria-de-imprensa');
-	if( (isset($_GET['post']) and $_GET['post'] == $assessoria) or (isset($_POST['post_ID']) and $_POST['post_ID'] == $assessoria) ){
+	if( (isset($_GET['post']) and ($_GET['post'] == $assessoria or $_GET['post'] == $contratar)) or (isset($_POST['post_ID']) and ($_POST['post_ID'] == $assessoria or $_POST['post_ID'] == $contratar)) ){
 		$meta_boxes[] = array(
-			'id' => 'assessoria_files_box', 
+			'id' => 'files_box', 
 			'title' => 'Arquivo para download', 
 			//'desc' => '',
 			'post_type' => array('page'), 
@@ -106,6 +107,8 @@ function my_meta_boxes(){
 				),
 			)
 		);
+	}
+	if( (isset($_GET['post']) and $_GET['post'] == $assessoria) or (isset($_POST['post_ID']) and $_POST['post_ID'] == $assessoria) ){
 		$meta_boxes[] = array(
 			'id' => 'assessoria_photos_box', 
 			'title' => 'Fotos', 
