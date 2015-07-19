@@ -115,6 +115,18 @@ function my_meta_boxes(){
 			'priority' => 'default',
 			'itens' => array(
 				array(
+					'name' => 'assessoria_photos_title',
+					'type' => 'text',
+					'size' => 'large',
+					'label' => 'Título',
+				),
+				array(
+					'name' => 'assessoria_photos_desc',
+					'type' => 'wp_editor',
+					'size' => 'large',
+					'label' => 'Descrição',
+				),
+				array(
 					'name' => 'assessoria_photos',
 					'type' => 'search_content_list',
 					'label' => 'Fotos',

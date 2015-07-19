@@ -52,11 +52,9 @@ jQuery(document).ready(function($){
 	 * 
 	 */
 	var owlAssessoriaPhotos = $(".owl-assessoria-photos");
-	owlAssessoriaPhotos.owlCarousel();
-	var owlAssessoriaPhotos2 = $(".owl-assessoria-photos2");
-	owlAssessoriaPhotos2.owlCarousel({
-		items : 3,
-		itemsDesktop : [1280, 3]
+	owlAssessoriaPhotos.owlCarousel({
+		items : 2,
+		itemsDesktop : [1280, 2]
 	});
 	
 	/**

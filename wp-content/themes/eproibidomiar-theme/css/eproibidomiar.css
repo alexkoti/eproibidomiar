@@ -39,6 +39,9 @@ a:hover, a:focus {
 .screen-reader-text {
 	display:none;
 }
+.hentry a {
+	text-decoration:underline;
+}
 
 
 /**
@@ -977,7 +980,10 @@ ul.pagination > li.active:hover span {
  * 
  * 
  */
-body.item-name-assessoria-de-imprensa .owl-carousel .inner > .caption {
+.assessoria-photos h3 {
+	font-size:20px;
+}
+.assessoria-photos. inner > .caption {
 	display:none;
 }
 

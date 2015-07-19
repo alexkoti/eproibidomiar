@@ -20,40 +20,26 @@ get_header();
 <div class="page-box">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="owl-carousel owl-assessoria-photos">
-					<?php
-					$photos = get_post_meta($post->ID, 'assessoria_photos', true);
-					if( !empty($photos) ){
-						$photos = explode( ',', $photos );
-						$i = 0;
-						foreach( $photos as $photo ){
-							$post = get_post($photo);
-							setup_postdata($post);
-							include('photo-item.php');
-							wp_reset_postdata();
-							$i++;
-						}
-					}
-					?>
-				</div>
-			</div>
 			<div class="col-md-6 col-md-push-6">
-				<div class="owl-carousel owl-assessoria-photos2">
-					<?php
-					$photos = get_post_meta($post->ID, 'assessoria_photos', true);
-					if( !empty($photos) ){
-						$photos = explode( ',', $photos );
-						$i = 0;
-						foreach( $photos as $photo ){
-							$post = get_post($photo);
-							setup_postdata($post);
-							include('photo-item.php');
-							wp_reset_postdata();
-							$i++;
+				<div class="hentry assessoria-photos">
+						<?php opt_post_meta($post->ID, 'assessoria_photos_title', '<h3>%s</h3>'); ?>
+						<?php opt_post_meta($post->ID, 'assessoria_photos_desc', '%s', true, 'the_content'); ?>
+					<div class="owl-carousel owl-assessoria-photos">
+						<?php
+						$photos = get_post_meta($post->ID, 'assessoria_photos', true);
+						if( !empty($photos) ){
+							$photos = explode( ',', $photos );
+							$i = 0;
+							foreach( $photos as $photo ){
+								$post = get_post($photo);
+								setup_postdata($post);
+								include('photo-item.php');
+								wp_reset_postdata();
+								$i++;
+							}
 						}
-					}
-					?>
+						?>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-6 col-md-pull-6">

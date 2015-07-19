@@ -30,6 +30,19 @@ get_header();
 					<div class="entry-content">
 						<?php the_content(); ?>
 					</div>
+					
+					<?php
+					$file = get_post_meta($post->ID, 'file', true);
+					if( !empty($file) ){
+						$file = wp_get_attachment_url($file);
+						$filename = basename($file);
+					?>
+					<div class="necessidades-tecnicas">
+						<?php opt_post_meta($post->ID, 'file_title', '<h3>%s</h3>'); ?>
+						<?php opt_post_meta($post->ID, 'file_desc', '%s', true, 'the_content'); ?>
+						<a href="<?php echo $file; ?>" target="_blank"><?php echo $filename; ?></a>
+					</div>
+					<?php } ?>
 				</article>
 				<?php
 					}
