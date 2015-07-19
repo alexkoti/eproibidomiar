@@ -136,30 +136,41 @@ function miar_foto_datas(){
 add_filter( 'boros_calendar_event_day_output', 'miar_calendar_day_output', 10, 5 );
 function miar_calendar_day_output( $output, $post, $day, $link, $title ){
 	//pre($post->metas);
-	//pre($day);
-	$performance_location = isset($post->metas['performance_location']) ? sprintf('<li class="performance-ico performance-location">%s</li>', $post->metas['performance_location'][0]) : '';
-	$performance_time = isset($post->metas['performance_location']) ? sprintf('<li class="performance-ico performance-time">%s</li>', $post->metas['performance_time'][0]) : '';
-	$performance_city = isset($post->metas['performance_city']) ? sprintf('<li class="performance-ico performance-city-state">%s</li>', $post->metas['performance_city'][0]) : '';
-	$performance_map = isset($post->metas['performance_map']) ? sprintf('<a href="%s" class="performance-ico performance-map-link" target="_blank">Ver no mapa</a>', $post->metas['performance_map'][0]) : '';
-	$performance_address = isset($post->metas['performance_address']) ? sprintf('<li class="performance-ico performance-address">%s %s</li>', $post->metas['performance_address'][0], $performance_map) : '';
-	$performance_cost = isset($post->metas['performance_cost']) ? sprintf('<li class="performance-ico performance-cost">%s</li>', apply_filters('the_content', $post->metas['performance_cost'][0])) : '';
+	//pre($day['day_num']);
+	$performance_location = isset($post->metas['performance_location']) ? sprintf('<li class="performance-ico performance-location">%s</li>'                                       , $post->metas['performance_location'][0])                           : '';
+	$performance_time     = isset($post->metas['performance_location']) ? sprintf('<li class="performance-ico performance-time">%s</li>'                                           , $post->metas['performance_time'][0])                               : '';
+	$performance_city     = isset($post->metas['performance_city'])     ? sprintf('<li class="performance-ico performance-city-state">%s</li>'                                     , $post->metas['performance_city'][0])                               : '';
+	$performance_map      = isset($post->metas['performance_map'])      ? sprintf('<a href="%s" class="performance-ico performance-map-link" target="_blank">Ver no mapa</a>'      , $post->metas['performance_map'][0])                                : '';
+	$performance_address  = isset($post->metas['performance_address'])  ? sprintf('<li class="performance-ico performance-address">%s %s</li>'                                     , $post->metas['performance_address'][0], $performance_map)          : '';
+	$performance_cost     = isset($post->metas['performance_cost'])     ? sprintf('<li class="performance-ico performance-cost">%s</li>'                                           , apply_filters('the_content', $post->metas['performance_cost'][0])) : '';
+	$day_num              = $day['day_num'];
 	
 	return sprintf(
 		'<div class="performance-item">
 			<div class="event-btn-ovelay"></div>
-			<ul>
-				%s 
-				%s 
-				%s
+			<ul class="hidden-xs">
+				%1$s 
+				%2$s 
+				%3$s
 			</ul>
+			<div class="visible-xs performance-info-xs">
+				<div class="event-day-number">%7$s</div>
+				<h3>%4$s</h3>
+				<ul>
+					%1$s 
+					%2$s 
+					%5$s 
+					%6$s
+				</ul>
+			</div>
 			<div class="event-pop-up">
 				<span class="glyphicon glyphicon-remove"></span>
-				<h3>%s</h3>
+				<h3>%4$s</h3>
 				<ul>
-					%s 
-					%s 
-					%s 
-					%s 
+					%1$s 
+					%2$s 
+					%5$s 
+					%6$s
 				</ul>
 			</div>
 		</div>',
@@ -167,10 +178,9 @@ function miar_calendar_day_output( $output, $post, $day, $link, $title ){
 		$performance_time,
 		$performance_city,
 		$post->post_title,
-		$performance_location,
-		$performance_time,
 		$performance_address,
-		$performance_cost
+		$performance_cost,
+		$day_num
 	);
 }
 
@@ -190,7 +200,7 @@ function miar_calendar_month_dropdown( $dropdown, $class, $dropdown_opts ){
 	foreach( $dropdown_opts as $option ){
 		$opts .= "<option value='{$option['link']}'{$option['selected']}>{$option['month_name']} {$option['year']}</option>";
 	}
-	return sprintf( '<select class="%s">%s</select>', $class, $opts );
+	return sprintf( '<select class="%s"><option>-</option>%s</select>', $class, $opts );
 }
 
 add_filter( 'boros_calendar_head', 'miar_calendar_head', 10, 4 );

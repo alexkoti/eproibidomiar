@@ -1262,7 +1262,7 @@ table.calendar td.cell-events {
 	.event-pop-up h3 {
 		font-weight:bold;
 		font-size:16px;
-		margin:0 0 15px;
+		margin:0 10px 15px 0;
 		padding:0;
 	}
 	.event-pop-up ul {
@@ -1473,9 +1473,67 @@ table.calendar td.cell-events {
 		padding:20px 0 0;
 	}
 	
-	#calendar-table-box {
-		display:none;
+	
+	table.calendar , 
+	table.calendar thead, 
+	table.calendar tbody, 
+	table.calendar th, 
+	table.calendar td, 
+	table.calendar tr {
+		display:block;
 	}
+	table.calendar .has-events {
+		display:block;
+	}
+	table.calendar {
+		border:0;
+		border-bottom:1px solid #fdc222;
+	}
+	table.calendar th,
+	table.calendar td,
+	table.calendar td.cell-header,
+	table.calendar .event-btn-ovelay {
+		display:none;
+		border:none;
+	}
+	table.calendar tr{
+		border:none;
+	}
+	table.calendar td.cell-events {
+		border:1px solid #fdc222;
+		border-bottom:none;
+		padding:0;
+	}
+	table.calendar td.cell-events .performance-item  {
+		padding:0;
+	}
+	.performance-info-xs {
+		padding:10px 48px 10px 10px;
+		position:relative;
+	}
+		.performance-info-xs .event-day-number {
+			background-color:#fdc222;
+			border-top-left-radius:6px;
+			border-bottom-left-radius:6px;
+			display:block;
+			font-size:20px;
+			font-weight:bold;
+			margin:-20px 0 0;
+			padding:10px;
+			text-align:right;
+			width:45px;
+			position:absolute;
+			top:50%;
+			right:0;
+		}
+		.performance-info-xs h3 {
+			font-size:20px;
+			margin:0 0 10px;
+		}
+		.performance-info-xs li p:last-child {
+			margin:0;
+		}
+	
 }
 
 

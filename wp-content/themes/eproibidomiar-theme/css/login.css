@@ -1,0 +1,7 @@
+
+.login h1 a {
+	background:url('../images/login-logo.png') no-repeat center top;
+	background-size: 100% auto;
+	height:130px;
+	width:100%;
+}
