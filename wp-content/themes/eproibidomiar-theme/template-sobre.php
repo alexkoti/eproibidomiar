@@ -57,13 +57,13 @@ get_header();
 		<div class="row">
 			<div class="col-md-12">
 				<img src="<?php echo THEME; ?>/images/ico/ico-sobre-balao-grande.png" class="ico-sobre-balao-grande visible-xs visible-sm" alt=" " />
-				<h2>Essa proposta é inédita e pioneira.</h2>
+				<h2>Essa proposta é diferente.</h2>
 				<div class="row">
 					<div class="col-md-8">
 						<p>Comungamos do conceito de que a deficiência não está nas pessoas, mas no ambiente, na informação e nas atitudes 
 						de acolhimento não preparados para a diversidade. Quando adaptamos essas três variáveis, a deficiência desaparece 
 						e todos temos as mesmas oportunidades de acesso.</p>
-						<p>Nossa <strong>proposta é inédita e pioneira no universo do teatro infantil porto-alegrense</strong>, pois nosso interesse não 
+						<p>Nossa <strong>proposta é incomum no universo do teatro infantil porto-alegrense</strong>, pois nosso interesse não 
 						está apenas na acessibilidade, mas no potencial criativo e cênico da LIBRAS e da Audiodescrição (AD). 
 						Por isso, decidimos integrar esses recursos na concepção e na dramaturgia do espetáculo. Queremos proporcionar 
 						às pessoas com diferentes habilidades de comunicação a convivência em um mesmo espaço, 

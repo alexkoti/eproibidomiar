@@ -35,7 +35,8 @@ jQuery(document).ready(function($){
 	var owlFeats = $("#owl-slider");
 	owlFeats.owlCarousel({
 		navigation : false,
-		singleItem : true
+		singleItem : true,
+		autoPlay: 15000
 	});
 	$('#main-slider .slider-prev-next').on('click', function(e){
 		e.preventDefault();

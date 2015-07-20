@@ -220,7 +220,7 @@ function miar_calendar_head( $html, $prev, $next, $dropdown ){
 		<div class="calendar-nav calendar-nav-head row">
 			<div class="col-md-9 col-sm-12">
 				<h2>Saiba onde estaremos e venha nos assistir!</h2>
-				<p>Programe-se! Nossas apresentações duram em torno de 1 hora e reservamos cerca de 30 minutos após o espetáculos para que o público tire fotos com os atores.</p>
+				<p>Programe-se! Nosso espetáculo dura em torno de 1 hora e reservamos cerca de 30 minutos antes das apresentações para que o público faça um tour tátil no cenário e nos figurinos.</p>
 			</div>
 			<div class="col-md-3 col-sm-12">
 				<form action="" class="form-inline clearfix">
