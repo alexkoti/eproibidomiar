@@ -13,7 +13,7 @@ function section_content(){
 		'block' => 'section',
 		'itens' => array(
 			array(
-				'name' => 'post_default_image',
+				'name' => 'og_image',
 				'type' => 'special_image',
 				'label' => 'Imagem padrão para os posts',
 				'label_helper' => 'Será usado quando não existir a imagem de destaque do conteúdo',
