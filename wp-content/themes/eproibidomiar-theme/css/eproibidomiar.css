@@ -1096,6 +1096,11 @@ body.attachment.single figure h1 {
 .agenda-box {
 	background:url('../images/bg-pattern-2.png') repeat bottom left;
 }
+.calendar-month-name {
+    font-size: 22px;
+    text-align: center;
+    text-transform: capitalize;
+}
 .calendar-nav {
 	font-size:16px;
 }

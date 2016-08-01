@@ -56,6 +56,7 @@ if( !empty($agenda_head_text) ){
 						$calendar->get_posts();
 						$calendar->show_calendar_head();
 						echo '<div id="calendar-table-box">';
+                            echo "<h2 class='calendar-month-name'>{$calendar->__get('month_name')}</h2>";
 							$calendar->show_calendar_table();
 						echo '</div>';
 						$calendar->show_calendar_footer();

@@ -202,7 +202,6 @@ jQuery(document).ready(function($){
 	 * 
 	 */
 	$('.event-btn-ovelay').on('click', function(){
-		console.log(2);
 		$('.event-popup').hide();
 		$(this).closest('.performance-item').find('.event-pop-up').fadeIn();
 	});
