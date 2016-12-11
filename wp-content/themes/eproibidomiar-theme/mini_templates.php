@@ -140,20 +140,20 @@ function miar_calendar_no_posts( $vars ){
 	printf('<div class="agenda-no-posts visible-xs">Não existem apresentações marcadas para %s</div>', ucfirst($vars['month_name']));
 }
 
-add_filter( 'boros_calendar_event_day_output', 'miar_calendar_day_output', 10, 5 );
-function miar_calendar_day_output( $output, $post, $day, $link, $title ){
+add_filter( 'boros_calendar_event_day_item_output', 'miar_calendar_day_output', 10, 2 );
+function miar_calendar_day_output( $output, $args ){
 	//pre($post->metas);
 	//pre($day['day_num']);
-	$performance_location = isset($post->metas['performance_location']) ? sprintf('<li class="performance-ico performance-location">%s</li>'                                       , $post->metas['performance_location'][0])                           : '';
-	$performance_time     = isset($post->metas['performance_location']) ? sprintf('<li class="performance-ico performance-time">%s</li>'                                           , $post->metas['performance_time'][0])                               : '';
-	$performance_city     = isset($post->metas['performance_city'])     ? sprintf('<li class="performance-ico performance-city-state">%s</li>'                                     , $post->metas['performance_city'][0])                               : '';
-	$performance_map      = isset($post->metas['performance_map'])      ? sprintf('<a href="%s" class="performance-ico performance-map-link" target="_blank">Ver no mapa</a>'      , $post->metas['performance_map'][0])                                : '';
-	$performance_address  = isset($post->metas['performance_address'])  ? sprintf('<li class="performance-ico performance-address">%s %s</li>'                                     , $post->metas['performance_address'][0], $performance_map)          : '';
-	$performance_cost     = isset($post->metas['performance_cost'])     ? sprintf('<li class="performance-ico performance-cost">%s</li>'                                           , apply_filters('the_content', $post->metas['performance_cost'][0])) : '';
-	$day_num              = $day['day_num'];
+	$performance_location = isset($args['post']->metas['performance_location']) ? sprintf('<li class="performance-ico performance-location">%s</li>'                                       , $args['post']->metas['performance_location'][0])                           : '';
+	$performance_time     = isset($args['post']->metas['performance_location']) ? sprintf('<li class="performance-ico performance-time">%s</li>'                                           , $args['post']->metas['performance_time'][0])                               : '';
+	$performance_city     = isset($args['post']->metas['performance_city'])     ? sprintf('<li class="performance-ico performance-city-state">%s</li>'                                     , $args['post']->metas['performance_city'][0])                               : '';
+	$performance_map      = isset($args['post']->metas['performance_map'])      ? sprintf('<a href="%s" class="performance-ico performance-map-link" target="_blank">Ver no mapa</a>'      , $args['post']->metas['performance_map'][0])                                : '';
+	$performance_address  = isset($args['post']->metas['performance_address'])  ? sprintf('<li class="performance-ico performance-address">%s %s</li>'                                     , $args['post']->metas['performance_address'][0], $performance_map)          : '';
+	$performance_cost     = isset($args['post']->metas['performance_cost'])     ? sprintf('<li class="performance-ico performance-cost">%s</li>'                                           , apply_filters('the_content', $args['post']->metas['performance_cost'][0])) : '';
+	$day_num              = $args['day']['day_num'];
 	
 	return sprintf(
-		'<div class="performance-item">
+		'<li class="performance-item">
 			<div class="event-btn-ovelay"></div>
 			<ul class="hidden-xs">
 				%1$s 
@@ -180,11 +180,11 @@ function miar_calendar_day_output( $output, $post, $day, $link, $title ){
 					%6$s
 				</ul>
 			</div>
-		</div>',
+		</li>',
 		$performance_location,
 		$performance_time,
 		$performance_city,
-		$post->post_title,
+		$args['post']->post_title,
 		$performance_address,
 		$performance_cost,
 		$day_num

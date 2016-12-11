@@ -1137,6 +1137,7 @@ body.attachment.single figure h1 {
 table.calendar {
 	background-color:#fff4d4;
 	border:2px solid #fff;
+    border-bottom:0;
 }
 table.calendar th {
 	background-color:#c95151;
@@ -1147,8 +1148,12 @@ table.calendar th {
 	width:14.28571428571429%;
 }
 table.calendar td {
-	border:2px solid #fff;
+	border-right:2px solid #fff;
+	border-left:2px solid #fff;
 	padding:0;
+}
+table.calendar tr.week-events {
+	border-bottom:2px solid #fff;
 }
 table.calendar td.cell-header {
 	border-bottom:1px solid #fff4d4;
@@ -1176,6 +1181,11 @@ table.calendar td.cell-events {
 	height:100px;
 	padding:10px 6px;
 }
+	table.calendar td.cell-events .events-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 	table.calendar td.cell-events .performance-item {
 		border-bottom:1px solid #fdc222;
 		font-size:12px;
@@ -1224,6 +1234,10 @@ table.calendar td.cell-events {
 	table.calendar td.cell-events .performance-item .performance-cost {
 		background-image:url('../images/ico/ico-coin.png');
 	}
+    table.calendar tr.week-extra,
+    table.calendar tr.week-extra td.week-extra-cell {
+        border:0px dashed red !important;
+    }
 
 .event-pop-up {
 	background:#c95151;
@@ -1517,6 +1531,9 @@ table.calendar td.cell-events {
 	}
 	table.calendar td.cell-events {
 		height:auto;
+	}
+	table.calendar td.cell-events .day-number {
+		display: none !important;
 	}
 	table.calendar {
 		border:0;

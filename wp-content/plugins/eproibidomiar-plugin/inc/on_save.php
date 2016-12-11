@@ -11,7 +11,7 @@
 
 /**
  * Adicionar os dias individuais para cada data de apresentação
- * Callback do meta_box de agenda 'performance_dates'
+ * Os dados serão feitos no callback meta_box de agenda 'performance_dates', no lugar do hook 'save_post'
  * 
  */
 function miar_set_performance_dates( $post, $element_config, $value ){
