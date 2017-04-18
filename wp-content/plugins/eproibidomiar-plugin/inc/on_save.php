@@ -16,20 +16,29 @@
  */
 function miar_set_performance_dates( $post, $element_config, $value ){
 	if( !empty($value) ){
+        $delete_dates = array();
+        
 		// gravar post_metas
 		$performance_dates = explode(',', $value);
 		sort($performance_dates);
+        
 		delete_post_meta($post->ID, 'performance_date');
 		foreach( $performance_dates as $date ){
 			add_post_meta( $post->ID, 'performance_date', $date );
+            
+            $month = date('m', strtotime($date));
+            $year = date('Y', strtotime($date));
+            $delete_dates[$year][] = $month;
 		}
 		
 		// resetar o transient respectivos
 		delete_transient("boros_cldr_agenda");
-		$month = date('m', strtotime($post->post_date));
-		delete_transient("boros_cldr_agenda_{$month}");
 		delete_transient('boros_cldr_agenda_performance_date');
-		delete_transient("boros_cldr_agenda_performance_date_{$month}");
+        foreach( $delete_dates as $year => $months ){
+            foreach( $months as $month ){
+                delete_transient("boros_cldr_agenda_performance_date_{$month}_{$year}");
+            }
+        }
 		
 		//miar_set_events_in_years( $post->ID, $performance_dates, true );
 	}
